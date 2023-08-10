@@ -1,3 +1,22 @@
 @tailwind base;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200&family=Titillium+Web:wght@200&display=swap');
+
+@layer base {
+    html {
+        @apply text-neutral-800;
+    }
+
+    html.dark {
+        @apply text-neutral-50;
+        @apply bg-neutral-800;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+
+}

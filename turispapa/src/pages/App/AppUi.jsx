@@ -14,6 +14,7 @@ import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 
 function AppRoutes() {
+    // se usa para el enrutamiento de la app
     let routes = useRoutes([
         { path: '/', element: <Home /> },
         { path: '/historia', element: <Historia /> },

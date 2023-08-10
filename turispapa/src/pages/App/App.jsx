@@ -1,9 +1,12 @@
 import AppUi from './AppUi.jsx'
+import { TurisContextProvider } from "../../Context";
 
 function App() {
 
   return (
-    <AppUi/>
+    <TurisContextProvider>
+      <AppUi />
+    </TurisContextProvider>
   )
 }
 
