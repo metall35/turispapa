@@ -12,6 +12,7 @@ import Rutas from "../Rutas";
 import Asistencias from "../Asistencias";
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
+import Footer from "../../Components/Footer";
 
 function AppRoutes() {
     // se usa para el enrutamiento de la app
@@ -39,6 +40,7 @@ function AppUi() {
             <BrowserRouter>
                 <Layout>
                     <AppRoutes />
+                    <Footer/>
                 </Layout>
             </BrowserRouter>
         </>

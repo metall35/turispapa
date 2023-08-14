@@ -157,7 +157,7 @@ export default function TabsJustify() {
                     </section>
                 </TETabsPane>
                 <TETabsPane show={justifyActive === "naturaleza"}>
-                    <figure className="relative w-[100%] max-h-[568px] overflow-hidden mb-[-100px]">
+                    <figure className="relative w-full max-h-[568px] overflow-hidden mb-[-100px]">
                         <img src={Naturaleza} alt=""
                             className="object-cover h-full w-full min-h-[568px]"
                         />

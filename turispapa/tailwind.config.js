@@ -8,6 +8,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: ["tw-elements-react/dist/plugin.cjs"]
+  plugins: ["tw-elements-react/dist/plugin.cjs","tw-elements/dist/plugin.cjs"],
 }
 
