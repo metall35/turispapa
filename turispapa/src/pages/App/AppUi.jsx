@@ -13,6 +13,7 @@ import Asistencias from "../Asistencias";
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
+import { Navbar } from "../../Components/Navbar/Navbar";
 
 function AppRoutes() {
     // se usa para el enrutamiento de la app
@@ -38,10 +39,11 @@ function AppUi() {
     return (
         <>
             <BrowserRouter>
+                <Navbar/>
                 <Layout>
                     <AppRoutes />
-                    <Footer/>
                 </Layout>
+                    <Footer/>
             </BrowserRouter>
         </>
     )
