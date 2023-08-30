@@ -1,4 +1,4 @@
-import Experiencias from "../../Components/Experiencias"
+import Experiencias from "../../Components/home/Experiencias"
 import MapaIndex from "../../Components/home/MapaIndex"
 import Slider from "../../Components/home/Slider/index."
 

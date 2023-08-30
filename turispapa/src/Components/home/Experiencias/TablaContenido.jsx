@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TurisContext } from "../../Context";
+import { TurisContext } from "../../../Context";
 import { TETabsPane } from "tw-elements-react";
 import Card from "./Card";
 

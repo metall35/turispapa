@@ -1,8 +1,8 @@
-import Bienvenida from "../../assets/img/iglesia.jpg";
-import Aventura from "../../assets/img/aventura.jpg";
-import Naturaleza from "../../assets/img/naturaleza.jpg";
-import Gastronomia from "../../assets/img/gastronomia.jpg";
-import Entretenimiento from "../../assets/img/entretenimiento.jpg";
+import Bienvenida from "../../../assets/img/iglesia.jpg";
+import Aventura from "../../../assets/img/aventura.jpg";
+import Naturaleza from "../../../assets/img/naturaleza.jpg";
+import Gastronomia from "../../../assets/img/gastronomia.jpg";
+import Entretenimiento from "../../../assets/img/entretenimiento.jpg";
 
 export const experiencia = [
     {

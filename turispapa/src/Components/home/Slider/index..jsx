@@ -1,9 +1,9 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import p1 from "../../assets/img/aventura.jpg";
-import p2 from "../../assets/img/entretenimiento.jpg";
-import p3 from '../../assets/img/naturaleza.jpg';
-import p4 from '../../assets/img/gastronomia.jpg'
+import p1 from "../../../assets/img/aventura.jpg";
+import p2 from "../../../assets/img/entretenimiento.jpg";
+import p3 from '../../../assets/img/naturaleza.jpg';
+import p4 from '../../../assets/img/gastronomia.jpg'
 import { useRef } from "react";
 
 export default function Slider() {

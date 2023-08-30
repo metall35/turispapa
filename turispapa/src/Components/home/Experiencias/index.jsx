@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TETabs, TETabsContent, TETabsItem,} from "tw-elements-react";
-import { TurisContext } from "../../Context";
+import { TurisContext } from "../../../Context";
 import { CiBank } from "react-icons/ci";
 import { FaMasksTheater } from "react-icons/fa6";
 import { PiMountainsLight, PiForkKnifeLight, PiTentLight } from "react-icons/pi";
