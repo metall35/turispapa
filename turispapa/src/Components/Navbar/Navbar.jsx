@@ -43,7 +43,6 @@ export const Navbar = () => {
       >
         <nav
           className={scroll + "fixed w-full text-gray-500 z-10 shadow-lg" }
-
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
