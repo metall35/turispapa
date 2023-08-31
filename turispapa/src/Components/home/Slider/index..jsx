@@ -1,89 +1,105 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import { useRef, useEffect } from 'react';
+import { register } from 'swiper/element/bundle';
+import "./style.css"
 import p1 from "../../../assets/img/aventura.jpg";
 import p2 from "../../../assets/img/entretenimiento.jpg";
 import p3 from '../../../assets/img/naturaleza.jpg';
 import p4 from '../../../assets/img/gastronomia.jpg'
-import { useRef } from "react";
+
+register();
 
 export default function Slider() {
-  const thumbsImages = [p1, p2, p3, p4];
+  const swiperElRef = useRef(null);
 
-  const mainOptions = {
-    type: "loop",
-    perPage: 1,
-    perMove: 1,
-    gap: "1rem",
-    pagination: false,
-  };
+  useEffect(() => {
+    // listen for Swiper events using addEventListener
+    swiperElRef.current.addEventListener('progress', (e) => {
+      const [swiper, progress] = e.detail;
+      console.log(progress);
+    });
 
-  const style = {
-    width: "100%",
-    height: "400px",
-    objectFit: "cover",
-    margin:"8px 0",
-    "border-radius": "12px"
-  };
-
-  const btn_img = {
-    width: "70px",
-    height: "70px",
-    overflow: "hidden",
-    listStyle: "none",
-    margin: "0 0.2rem",
-    cursor: "pointer",
-  }
-
-  const thumbnailsstyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    listStyle: "none"
-  }
-
-  const mainRef = useRef(null);
-
-  const handleThumbs = (id) => {
-    if (mainRef.current) {
-      mainRef.current.go(id);
-    }
-  };
+    swiperElRef.current.addEventListener('slidechange', (e) => {
+      console.log('slide changed');
+    });
+  }, []);
 
   return (
-      <div className="flex flex-col justify-center items-center m-4 w-[95%] md:w-[70%]" >
-        <h2 className=" text-xl mb-2 font-bold">50 experiencias para vivir en La Unión.</h2>
-        <div>
-          <Splide options={mainOptions} ref={mainRef} style={{}} className="">
-            <SplideSlide>
-              <img src={p1} alt="product imag 1" style={style} />
-            </SplideSlide>
-            <SplideSlide>
-              <img src={p2} alt="product imag 2" style={style} />
-            </SplideSlide>
+    <section className='w-[80%] h-[450px]'>
+      <swiper-container
+        class="mySwiper rounded-lg overflow-hidden"
+        ref={swiperElRef}
+        thumbs-swiper=".mySwiper2"
+        space-between="10"
+        navigation="true">
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+        </swiper-slide>
+      </swiper-container>
 
-            <SplideSlide>
-              <img src={p3} alt="product imag 2" style={style} />
-            </SplideSlide>
-
-            <SplideSlide>
-              <img src={p4} alt="product imag 2" style={style} />
-            </SplideSlide>
-          </Splide>
-
-          <ul style={thumbnailsstyle} >
-            {thumbsImages?.map((thumbnail, index) => (
-              <li key={thumbnail}>
-                <button onClick={() => handleThumbs(index)}>
-                  <img
-                    src={thumbnail}
-                    alt="product thumbnail"
-                    style={btn_img}
-                  />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <swiper-container
+        class="mySwiper2"
+        space-between="10"
+        slides-per-view="4"
+        free-mode="true"
+        watch-slides-progress="true">
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+        </swiper-slide>
+      </swiper-container>
+    </section>
   );
-}
+};
