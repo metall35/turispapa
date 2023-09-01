@@ -1,6 +1,6 @@
 import Experiencias from "../../Components/home/Experiencias"
 import MapaIndex from "../../Components/home/MapaIndex"
-import Slider from "../../Components/home/Slider/index."
+import Slider from "../../Components/home/Slider"
 
 function Home() {
     return (
