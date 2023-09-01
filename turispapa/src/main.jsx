@@ -4,6 +4,8 @@ import App from './pages/App/App'
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import './index.css'
 
+/* `ReactDOM.createRoot(document.getElementById('root')).render()` está procesando la aplicación React
+en el DOM. */
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />

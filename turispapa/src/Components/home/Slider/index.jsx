@@ -10,10 +10,13 @@ import p6 from '../../../assets/img/avion.jpg'
 import p7 from '../../../assets/img/cruz.jpg'
 import p8 from '../../../assets/img/papa.jpg'
 import p9 from '../../../assets/img/vista_avion.jpg'
-
+/* Se llama a la función `register()` para registrar el paquete de elementos Swiper. Esto es necesario
+para utilizar el componente Swiper en el código. */
 register();
 
 export default function Slider() {
+  /* El código está creando una referencia (`swiperElRef`) usando el gancho `useRef`. Esta referencia se
+  utiliza para acceder al elemento DOM del contenedor swiper. */
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -27,6 +30,8 @@ export default function Slider() {
     <>
       <h2 className=' text-center m-4 font-semibold text-lg '>50 Experiencias para vivir en La Unión</h2>
       <section className='w-[80%] h-[520px]'>
+        {/* /* El código está creando un componente contenedor Swiper utilizando el elemento `swiper-container`.
+Este contenedor se encarga de mostrar una presentación de diapositivas de imágenes. */}
         <swiper-container
           class="mySwiper rounded-lg overflow-hidden"
           ref={swiperElRef}
