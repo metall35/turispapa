@@ -3,7 +3,7 @@ import { TurisContext } from "../../../Context";
 import { TETabsPane } from "tw-elements-react";
 import Card from "./Card";
 
-
+// tabla del contenido experiencias
 export default function TablaContenido(data) {
     const { justifyActive } = useContext(TurisContext);
     return (

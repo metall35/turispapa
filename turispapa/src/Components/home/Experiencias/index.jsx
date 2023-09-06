@@ -9,6 +9,8 @@ import {experiencia} from "./Myexperiencias"
 
 
 export default function Experiencias() {
+/* El fragmento de código utiliza el gancho `useContext` de React para acceder al contexto
+`TurisContext`. Está desestructurando los valores `justifyActive` y `setJustifyActive` del contexto. */
     const { justifyActive, setJustifyActive } = useContext(TurisContext);
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {

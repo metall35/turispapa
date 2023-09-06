@@ -1,5 +1,6 @@
 import NOX from "../../assets/NOX.svg";
 import fondo from "../../assets/img/fondo-footer.png";
+// componente de footer
 function Footer() {
     return (
         <footer className="relative max-h-32  w-full overflow-hidden " >
