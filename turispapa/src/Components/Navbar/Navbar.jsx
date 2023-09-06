@@ -69,6 +69,11 @@ representa un encabezado y una barra de navegación. */
               </li>
               <NavLinks className={scroll} />
               <li>
+                <Link to="/entretenimiento" className="py-7 px-3 inline-block">
+                  Entretenimiento
+                </Link>
+              </li>
+              <li>
                 <Link to="/rutas" className="py-7 px-3 inline-block ">
                   Rutas
                 </Link>

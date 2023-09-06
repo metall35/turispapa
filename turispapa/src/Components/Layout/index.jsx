@@ -1,4 +1,4 @@
-
+import fondo from "../../assets/fondo.svg"
 // eslint-disable-next-line react/prop-types
 /**
  * La función `Layout` es un componente de React que representa un contenedor principal con flexbox y
@@ -8,7 +8,7 @@
  */
 function Layout({children}) {
     return (
-        <main className="flex flex-col mt-11 items-center">
+        <main className="flex flex-col mt-10 items-center bg-center bg-cover" style={{backgroundImage: `url(${fondo})`}}>
             {children}
         </main>
     )
