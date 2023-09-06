@@ -15,8 +15,12 @@ import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
 import { Navbar } from "../../Components/Navbar/Navbar";
 
+/* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
+`useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
+objeto representa una ruta específica en la aplicación. Cada objeto de ruta tiene una propiedad
+`ruta` que define la ruta URL para esa ruta y una propiedad `elemento` que especifica el componente
+que se representará cuando se accede a esa ruta. */
 function AppRoutes() {
-    // se usa para el enrutamiento de la app
     let routes = useRoutes([
         { path: '/', element: <Home /> },
         { path: '/historia', element: <Historia /> },
@@ -34,6 +38,8 @@ function AppRoutes() {
     ])
     return routes
 }
+/* La función `AppUi` es un componente de React que define la estructura y el diseño de la aplicación.
+Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
     return (

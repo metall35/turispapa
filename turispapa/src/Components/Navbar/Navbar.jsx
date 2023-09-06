@@ -9,6 +9,10 @@ export const Navbar = () => {
   const [scroll, setScroll] = useState('bg-[#eaeaf16e]');
   const [nav, setNav] = useState('h-[80px] ');
   const scrollRef = useRef(false);
+/**
+ * La función `useScrolling` ajusta el color de fondo y la altura de un elemento según la posición de
+ * desplazamiento de la ventana.
+ */
 
   const useScrolling = () => {
     if (window.scrollY > 10) {
@@ -27,6 +31,9 @@ export const Navbar = () => {
     }
   }
 
+/* El gancho `useEffect` se utiliza para realizar efectos secundarios en un componente funcional. En
+este caso, se trata de agregar un detector de eventos al objeto de ventana para el evento
+"desplazamiento" y llamar a la función `useScrolling` cuando se activa el evento. */
   useEffect(() => {
     window.addEventListener("scroll", useScrolling);
 
@@ -35,6 +42,8 @@ export const Navbar = () => {
     }
   }, []);
 
+/* El código define un componente funcional llamado `Navbar` en JavaScript React. El componente
+representa un encabezado y una barra de navegación. */
   return (
     <>
       <header

@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+/**
+ * La función `MapaIndex` devuelve una sección que contiene un iframe de Google Maps incrustado y un
+ * div con un encabezado, un párrafo y un botón.
+ * @returns un elemento JSX.
+ */
 
 export default function MapaIndex() {
     return (
