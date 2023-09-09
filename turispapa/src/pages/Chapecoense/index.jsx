@@ -1,23 +1,16 @@
+import InicioChapeco from "../../Components/Chapeco/Inicio"
+import Slider from "../../Components/Slider"
 
 function Chapecoense() {
     return (
-        <section>
-        <section>
-            <div>
-                <h1>
-                    TITULO
-                </h1>
-                <p>
-                    CONTEXTO
-                </p>
-            </div>
-            <div>
-                VIDEO O IMG 360
-            </div>
-        </section>
-        <section>
-            SLIDER
-        </section>
+        <section className="w-[90%]">
+            <InicioChapeco/>
+        <article >
+            <h2 className="font-semibold text-lg text-center mt-4 py-4">Imagenes chapecoense</h2>
+            <Slider 
+            width={'100%'}
+            />
+        </article>
         <section>
             <h2>
                 TITULO

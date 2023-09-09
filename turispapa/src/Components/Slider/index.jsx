@@ -19,12 +19,6 @@ export default function Slider({width}) {
   utiliza para acceder al elemento DOM del contenedor swiper. */
   const swiperElRef = useRef(null);
 
-  useEffect(() => {
-    swiperElRef.current.addEventListener('progress', (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
-  }, []);
 
   return (
     <>
