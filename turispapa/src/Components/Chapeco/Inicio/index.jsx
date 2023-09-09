@@ -4,30 +4,17 @@ export default function InicioChapeco() {
     
     return(
         <section>
-            <section>
-                <div>
-                    <h1>
-                        TITULO
-                    </h1>
-                    <p>
-                        CONTEXTO
-                    </p>
-                </div>
-                <div>
-                    VIDEO O IMG 360
-                </div>
-            </section>
-            <section>
-                SLIDER
-            </section>
-            <section>
-                <h2>
+            <div>
+                <h1>
                     TITULO
-                </h2>
+                </h1>
                 <p>
-                    HISTORIA TRAGEDIA
+                    CONTEXTO
                 </p>
-            </section>
+            </div>
+            <div>
+                VIDEO O IMG 360
+            </div>
         </section>
     )
 }
