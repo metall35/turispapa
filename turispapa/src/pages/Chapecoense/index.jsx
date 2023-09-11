@@ -6,18 +6,18 @@ function Chapecoense() {
         <section className="w-[90%]">
             <InicioChapeco />
             <article >
-                <h2 className="font-semibold text-lg text-center mt-4 py-4">Imagenes chapecoense</h2>
+                <h2 className="font-semibold text-lg text-center mt-4 py-4 text-[#14A44D]">Imagenes chapecoense</h2>
                 <Slider
                     width={'100%'}
                 />
             </article>
-            <section className="mb-4 flex items-center gap-4">
-                <div>
-                    <img src={cruz} alt="Cruz" className='max-h-80 max-w-xs rounded' />
-                </div>
+            <section className="my-8 flex items-center gap-4">
+                <figure className='max-h-80 max-w-xs rounded overflow-hidden'>
+                    <img src={cruz} alt="Cruz" />
+                </figure>
 
                 <div>
-                    <h2 className="text-4xl font-light mb-4 text-[#14A44D]">
+                    <h2 className="text-2xl font-light mb-2 text-[#14A44D]">
                         El Acontecimiento
                     </h2>
                     <p>
