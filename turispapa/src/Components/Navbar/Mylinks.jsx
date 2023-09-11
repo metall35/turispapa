@@ -6,11 +6,9 @@ export const links = [
       {
         sublink: [
           { name: "Historia", link: "/historia" },
-          { name: "Generalidades", link: "/Generalidades" },
           { name: "Chapecoense", link: "/Chapecoense" },
           { name: "Lugares Naturales", link: "/lugares-naturales" },
           { name: "Fiestas y eventos", link: "/eventos" },
-          { name: "Galería", link: "/galeria" },
         ],
       },
     ],
@@ -21,23 +19,8 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Restaurantes", link: "/" },
-          { name: "Hoteles", link: "/" },
-          { name: "Agencias de viaje", link: "/" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Entretenimiento",
-    submenu: true,
-    sublinks: [
-      {
-        sublink: [
-          { name: "Casinos", link: "/" },
-          { name: "Teatros", link: "/" },
-          { name: "Bares", link: "/" },
-          { name: "Discotecas", link: "/" },
+          { name: "Restaurantes", link: "/restaurantes" },
+          { name: "Hoteles", link: "/hoteles" },
         ],
       },
     ],

@@ -10,6 +10,7 @@ import Hoteles from "../Hoteles";
 import Agencias from "../Agencias";
 import Rutas from "../Rutas";
 import Asistencias from "../Asistencias";
+import Entretenimiento from "../Entretenimiento"
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
@@ -29,6 +30,7 @@ function AppRoutes() {
         { path: '/lugares-naturales', element: <Lugar_Natural /> },
         { path: '/eventos', element: <Eventos /> },
         { path: '/restaurantes', element: <Restaurantes /> },
+        { path: '/entretenimiento', element: <Entretenimiento /> },
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },

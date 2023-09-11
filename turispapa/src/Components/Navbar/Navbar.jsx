@@ -51,7 +51,7 @@ representa un encabezado y una barra de navegación. */
         style={{ backgroundImage: `url(${imgHeader})` }}
       >
         <nav
-          className={scroll + "fixed w-full text-gray-500 z-10 shadow-lg" }
+          className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg" }
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
@@ -68,6 +68,11 @@ representa un encabezado y una barra de navegación. */
                 </Link>
               </li>
               <NavLinks className={scroll} />
+              <li>
+                <Link to="/entretenimiento" className="py-7 px-3 inline-block">
+                  Entretenimiento
+                </Link>
+              </li>
               <li>
                 <Link to="/rutas" className="py-7 px-3 inline-block ">
                   Rutas
