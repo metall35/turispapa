@@ -16,7 +16,7 @@ export default function CardLong({data}) {
                 <h2 className='font-semibold my-4'>
                     {data.title}
                 </h2>
-                <p>
+                <p className=' font-extralight my-2'> 
                     {data.description}
                 </p>
             </div>
