@@ -1,4 +1,3 @@
-
 export default function Card(data) {
     return (
         <figure className="w-80 h-96 overflow-hidden relative rounded-md">

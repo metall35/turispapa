@@ -11,9 +11,9 @@ function Chapecoense() {
                     width={'100%'}
                 />
             </article>
-            <section className="my-8 flex items-center gap-4">
+            <section className="my-8 flex max-md:flex-col items-center gap-4">
                 <figure className='max-h-80 max-w-xs rounded overflow-hidden'>
-                    <img src={cruz} alt="Cruz" />
+                    <img src={cruz} alt="Cruz" className=" shadow-lg " />
                 </figure>
 
                 <div>
