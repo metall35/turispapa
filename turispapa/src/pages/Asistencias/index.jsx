@@ -7,7 +7,7 @@ function Asistencias() {
         <>
         <Forms>
         <Input 
-        type={'text'}
+        type={'file'}
         name={'Nombre'}
         required={true}
         placeholder={'Ingrese su nombre'}
