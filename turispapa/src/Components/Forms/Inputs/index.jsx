@@ -5,7 +5,7 @@ const Input = ({ name, type, placeholder, required }) => {
     return (
         <label
             htmlFor={name}
-            className='block'
+            className='block grid-cols-1'
         >
             <span className={`${requiredStyle} text-neutral-500 block`}>
                 {name}
