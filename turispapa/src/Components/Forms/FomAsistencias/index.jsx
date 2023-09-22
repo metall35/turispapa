@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TurisContext } from "../../../Context";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 
 export default function FormAsistencia() {
-    const [inputs, setInputs] = useState({
-        Contacto: '',
-        Direccion: '',
-        Tipo: '',
-        Imagen: ''
-    })
+    const {inputs} = useContext(TurisContext)
+    
     const Inputs = [
         {
             id: 1,
@@ -45,11 +42,6 @@ export default function FormAsistencia() {
         event.preventDefault()
         console.log(inputs);
     }
-    const onChange = (e) => {
-        const [name, value] = e.target.value
-        setInputs({ ...inputs, [name]: value })
-        // console.log(e.target.value);
-    }
     return (
         <Forms>
             <h1 className="text-center my-2 mb-4">Formulario de ingreso de asistencias</h1>
@@ -61,8 +53,6 @@ export default function FormAsistencia() {
                         name={input.name}
                         placeholder={input.placeholder}
                         required={input.required}
-                        onChange={onChange}
-                        value={inputs.Contacto}
                     />
                 ))}
                 <div className={Inputs.length % 2 === 0 ? "md:col-span-2" : "flex items-center justify-center mt-6"}>

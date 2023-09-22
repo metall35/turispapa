@@ -4,14 +4,16 @@ export const TurisContext = createContext()
 export function TurisContextProvider({ children }) {
     // estado del contenido experiencia
     const [justifyActive, setJustifyActive] = useState("historico");
-
+    const [inputs, setInputs] = useState({})
     return (
 /* El código está creando un componente proveedor de contexto llamado `TurisContextProvider` usando los
 ganchos `createContext` y `useState` de React. */
         <TurisContext.Provider
         value={{
             setJustifyActive,
-            justifyActive
+            justifyActive,
+            inputs,
+            setInputs
         }
             }
         >
