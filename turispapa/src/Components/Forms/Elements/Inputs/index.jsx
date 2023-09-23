@@ -6,10 +6,9 @@ const Input = ({ name, type, placeholder, required, }) => {
     const requiredStyle = required ? "after:content-['*'] after:ml-0.5 after:text-red-500" : ''
 
     const typeFile = type === 'file' ? 'file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-normal file:bg-[#14a44e10] file:text-[#43bb72] hover:file:bg-[#14a44e20] text-sm' : ''
-    
+
     const onChange = e => {
-        setInputs({ ...inputs, [name]: e.target.value })
-        console.log(e.target.value);
+        setInputs({ ...inputs, [name]: type === 'file' ? e.target.files[0] : e.target.value })
     }
     return (
         <label
