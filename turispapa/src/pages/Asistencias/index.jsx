@@ -1,9 +1,9 @@
-import FormAsistencia from "../../Components/Forms/FomAsistencias";
+import FormLugaresNaturales from "../../Components/Forms/FormEstablecimieno";
 
 function Asistencias() {
     return (
       <>
-      <FormAsistencia/>
+      <FormLugaresNaturales/>
       </>
     );
 }

@@ -5,8 +5,8 @@ import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 
 export default function FormAsistencia() {
-    const {inputs} = useContext(TurisContext)
-    
+    const { inputs, setInputs } = useContext(TurisContext)
+
     const Inputs = [
         {
             id: 1,
@@ -41,6 +41,7 @@ export default function FormAsistencia() {
     const onSubmit = event => {
         event.preventDefault()
         console.log(inputs);
+        setInputs({})
     }
     return (
         <Forms>
