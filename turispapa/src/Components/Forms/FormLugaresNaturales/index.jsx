@@ -34,8 +34,26 @@ export default function FormLugaresNaturales() {
 
     const onSubmit = event => {
         event.preventDefault()
+        const url = 'http://localhost:8000/api/imagen'
+        function postData(url, data) {
+            const response = fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            return response
+        }
+        const data = {
+            'id_imagen': null,
+            'imgen': 'xd.jsx'
+        }
+        postData(url, data)
+
         console.log(inputs);
-        setInputs({})
+        // setInputs({})
     }
     return (
         <Forms>

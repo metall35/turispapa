@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { TurisContext } from "../../../Context";
 import { TETabsPane } from "tw-elements-react";
-import Card from "./Card";
 
 // tabla del contenido experiencias
 export default function TablaContenido(data) {
     const { justifyActive } = useContext(TurisContext);
     return (
         <TETabsPane show={justifyActive === data.data.categoria} >
-            <figure className="relative w-[100%] max-h-[568px] overflow-hidden mb-[-100px]">
+            <figure className="relative w-[100%] max-h-[568px] overflow-hidden">
                 <img src={data.data.imagen} alt=""
                     className="object-cover h-full w-full min-h-[568px]"
                 />
@@ -21,14 +20,6 @@ export default function TablaContenido(data) {
                     </p>
                 </div>
             </figure>
-            <section className="flex flex-row justify-center flex-wrap gap-10 mx-10">
-                {data.data.cards?.map((data)=>(
-                    <Card
-                    key= {data.id}
-                    data={data}
-                    />
-                ))}
-            </section>
         </TETabsPane>
     )
 }
