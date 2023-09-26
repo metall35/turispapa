@@ -1,10 +1,10 @@
-
+import FormEstablecimiento from "../../Components/Forms/FormAsistencias"
 function Asistencias() {
-    return (
-      <div>
-        Asistencias
-      </div>
-    );
+  return (
+    <>
+      <FormEstablecimiento />
+    </>
+  );
 }
 
 export default Asistencias
