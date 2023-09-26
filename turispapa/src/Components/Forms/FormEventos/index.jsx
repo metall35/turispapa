@@ -9,7 +9,7 @@ import Input from "../Elements/Inputs";
 import Select from "../Elements/Select";
 import TextArea from "../Elements/TextArea";
 
-export default function FormEstablecimiento() {
+export default function FormLugaresNaturales() {
     const { inputs, setInputs, setLoader } = useContext(TurisContext)
     const navigate = useNavigate()
     const Inputs = [
@@ -17,48 +17,41 @@ export default function FormEstablecimiento() {
             id: 1,
             type: 'text',
             name: 'Nombre',
-            placeholder: 'Ingrese el nombre del establecimiento',
+            placeholder: 'Ingrese el nombre del evento',
             required: true
         },
         {
             id: 2,
-            type: 'text',
-            name: 'Dirección',
-            placeholder: 'Ingrese la dirección del establecimiento',
+            type: 'date',
+            name: 'Fecha',
+            placeholder: 'Ingrese la próxima fecha del evento',
             required: true
         },
         {
             id: 3,
-            type: 'text',
-            name: 'Localidad',
-            placeholder: 'Ingrese la localidad del establecimiento',
+            type: 'number',
+            name: 'Aforo',
+            placeholder: 'Ingrese el aforo del evento',
             required: true
         },
         {
             id: 4,
             type: 'tel',
             name: 'Contacto',
-            placeholder: 'Ingrese el contacto del establecimiento',
+            placeholder: 'Ingrese el contacto del organizador',
             required: true
         },
         {
             id: 5,
-            type: 'text',
-            name: 'Propietario',
-            placeholder: 'Ingrese el propietario del establecimiento',
-            required: true
-        },
-        {
-            id: 6,
             type: 'file',
-            name: 'Logo',
+            name: 'Imagen',
             placeholder: '',
             required: true
         },
     ]
-    // console.log(inputs.establecimiento);
+
     const onSubmit = event => {
-        const url = 'http://localhost:8000/api/establecimiento'
+        const url = 'http://localhost:8000/api/eventos'
         event.preventDefault()
         Swal.fire({
             title: '¿Estás seguro?',
@@ -75,17 +68,12 @@ export default function FormEstablecimiento() {
                 setLoader(true)
                 axios.post(url, {
                     nombre: inputs.Nombre,
-                    localidad: inputs.Localidad,
-                    direccion: inputs.Dirección,
-                    telefono: inputs.Contacto,
-                    descripcion: inputs.Descripción,
-                    tipo_negocio: inputs.establecimiento,
-                    propietario: inputs.Propietario,
-                    id_usuario: 3,
-                    id_estado: 2,
-                    logo: inputs.Logo,
-                    redes_id: 3,
-                    detalle: inputs.Carta || inputs.Habitación
+                    fecha: inputs.Fecha,
+                    descripcion: inputs.Descripcion,
+                    aforos: inputs.Aforo,
+                    tipo_evento: inputs.evento,
+                    contacto: inputs.Contacto,
+                    id_estado: 2
                 })
                     .then(function (response) {
                         Swal.fire({
@@ -119,7 +107,7 @@ export default function FormEstablecimiento() {
     }
     return (
         <Forms>
-            <h1 className="text-center my-2 mb-8 text-xl font-semibold">Formulario de ingreso de establecimientos</h1>
+            <h1 className="text-center my-2 mb-8 text-xl font-semibold">Formulario de ingreso de Eventos</h1>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-3" onSubmit={onSubmit}>
                 {Inputs.map(input => (
                     <Input
@@ -131,35 +119,34 @@ export default function FormEstablecimiento() {
                     />
                 ))}
                 <Select
-                    label="Tipo de establecimiento"
-                    name="establecimiento"
+                    label="Tipo de evento"
+                    name="evento"
                     options={[
                         {
-                            value: "Restaurante",
-                            label: "Restaurante",
+                            value: "Público",
+                            label: "Público",
                         },
                         {
-                            value: "Hotel",
-                            label: "Hotel",
+                            value: "Privado",
+                            label: "Privado",
+                        },
+                        {
+                            value: "Municipal",
+                            label: "Municipal",
                         },
                     ]}
                 />
-                {inputs.establecimiento === undefined ? <></> : inputs.establecimiento === 'restaurante' ?
-                    <Input key={'restaurante'} type={'file'} name={'Carta'} placeholder={'Ingrese la carta del restaurante'} required={false} /> :
-                    <Input key={'hotel'} type={'file'} name={'Habitación'} placeholder={'Ingrese la mejor habitación'} required={false} />
-                }
                 <TextArea
-                    name={'Descripción'}
+                    name={'Descripcion'}
                     placeholder={'Ingrese la descripción del lugar'}
                     required={true}
                 />
-                <div className="md:col-span-2" >
+                <div className="md:col-span-2">
                     <Button
                         type={'submit'}
                         name={'Enviar'}
                     />
                 </div>
-
             </form>
         </Forms>
     )
