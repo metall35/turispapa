@@ -2,6 +2,7 @@
 import  { useState } from 'react'                                                                                            
 import { photos } from './MyPhotos';
 
+//Cada foto tendrá su estado único
 const Photo = ({ photo }) => {
   const [hovered, setHovered] = useState(false);
 
