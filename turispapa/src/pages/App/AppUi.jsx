@@ -1,4 +1,6 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import { useContext } from "react";
+import { TurisContext } from "../../Context";
 import Home from "../Home";
 import Historia from "../Historia";
 import Generalidades from "../Generalidades";
@@ -15,6 +17,7 @@ import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
 import { Navbar } from "../../Components/Navbar/Navbar";
+import Loader from '../../Components/Loader'
 
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
@@ -44,11 +47,13 @@ function AppRoutes() {
 Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
+    const {loader} = useContext(TurisContext)
     return (
         <>
             <BrowserRouter>
                 <Navbar/>
                 <Layout>
+                    {loader && <Loader />}
                     <AppRoutes />
                 </Layout>
                     <Footer/>

@@ -1,8 +1,10 @@
 
 function Asistencias() {
     return (
-        <div>Asistencias</div>
-    )
+      <div>
+        Asistencias
+      </div>
+    );
 }
 
 export default Asistencias

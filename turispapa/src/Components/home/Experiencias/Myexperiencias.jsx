@@ -11,22 +11,6 @@ export const experiencia = [
         categoria: "historico",
         titulo: "¡Bienvenido a La Unión!",
         descripcion: "Este es un municipio donde el contacto con la naturaleza y las rutas camineras son protagonistas. Ten presente tener botas, ropa térmica, hidratación y alimentos que te den calorías y bloqueador cuando recorras sus atractivos.",
-        cards: [{
-            id:1,
-            imagen: Bienvenida,
-            titulo: "titulo 1"
-        },
-        {
-            id:2,
-            imagen: Bienvenida,
-            titulo: "titulo 2"
-        },
-        {
-            id:3,
-            imagen: Bienvenida,
-            titulo: "titulo 3"
-        },
-    ],
     },
     {
         id: 2,
@@ -34,22 +18,6 @@ export const experiencia = [
         categoria: "aventura",
         titulo: "¡Bienvenido a La Unión!",
         descripcion: "Este es un municipio donde el contacto con la naturaleza y las rutas camineras son protagonistas. Ten presente tener botas, ropa térmica, hidratación y alimentos que te den calorías y bloqueador cuando recorras sus atractivos.",
-        cards: [{
-            id:1,
-            imagen: Aventura,
-            titulo: "titulo 1"
-        },
-        {
-            id:2,
-            imagen: Aventura,
-            titulo: "titulo 2"
-        },
-        {
-            id:3,
-            imagen: Aventura,
-            titulo: "titulo 3"
-        },
-    ]
     },
     {
         id: 3,
@@ -57,22 +25,6 @@ export const experiencia = [
         categoria: "naturaleza",
         titulo: "¡Bienvenido a La Unión!",
         descripcion: "Este es un municipio donde el contacto con la naturaleza y las rutas camineras son protagonistas. Ten presente tener botas, ropa térmica, hidratación y alimentos que te den calorías y bloqueador cuando recorras sus atractivos.",
-        cards: [{
-            id:1,
-            imagen: Naturaleza,
-            titulo: "titulo 1"
-        },
-        {
-            id:2,
-            imagen: Naturaleza,
-            titulo: "titulo 2"
-        },
-        {
-            id:3,
-            imagen: Naturaleza,
-            titulo: "titulo 3"
-        },
-    ],
     },
     {
         id: 4,
@@ -80,22 +32,6 @@ export const experiencia = [
         categoria: "gastronomia",
         titulo: "¡Bienvenido a La Unión!",
         descripcion: "Este es un municipio donde el contacto con la Gastronomia y las rutas camineras son protagonistas. Ten presente tener botas, ropa térmica, hidratación y alimentos que te den calorías y bloqueador cuando recorras sus atractivos.",
-        cards: [{
-            id:1,
-            imagen: Gastronomia,
-            titulo: "titulo 1"
-        },
-        {
-            id:2,
-            imagen: Gastronomia,
-            titulo: "titulo 2"
-        },
-        {
-            id:3,
-            imagen: Gastronomia,
-            titulo: "titulo 3"
-        },
-    ],
     },
     {
         id: 5,
@@ -103,21 +39,5 @@ export const experiencia = [
         categoria: "entretenimiento",
         titulo: "¡Bienvenido a La Unión!",
         descripcion: "Este es un municipio donde el contacto con la Entretenimiento y las rutas camineras son protagonistas. Ten presente tener botas, ropa térmica, hidratación y alimentos que te den calorías y bloqueador cuando recorras sus atractivos.",
-        cards: [{
-            id:1,
-            imagen: Entretenimiento,
-            titulo: "titulo 1"
-        },
-        {
-            id:2,
-            imagen: Entretenimiento,
-            titulo: "titulo 2"
-        },
-        {
-            id:3,
-            imagen: Entretenimiento,
-            titulo: "titulo 3"
-        },
-    ],
     },
 ]
