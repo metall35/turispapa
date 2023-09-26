@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Button = ({ name, type }) => {
         const typeColor = type === 'submit'
             ? 'bg-[#14a44e76] hover:bg-[#6fc390] active:bg-[#43bb72]'

@@ -1,5 +1,4 @@
-import React from 'react'
-
+/* eslint-disable react/prop-types */
 /**
  * El componente CardLong es un componente de React que representa una tarjeta con una imagen y texto,
  * con la imagen y el texto colocados de manera diferente según la identificación de los datos que se
@@ -12,7 +11,7 @@ export default function CardLong({data, children}) {
             <figure className='max-w-[360px] rounded-lg overflow-hidden my-2 shadow-md shadow-zinc-500 '> 
                 <img src={data.img} alt={data.title} />
             </figure>
-            <div className='lg:w-[50%] flex flex-col'>
+            <div className='lg:w-[50%] flex flex-col ml-3'>
             {children}
             </div>
         </div>

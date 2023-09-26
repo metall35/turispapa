@@ -75,7 +75,9 @@ function Asistencias() {
             placeholder={"Caracteristicas"}
           />
 
-          <Button name={"Guardar"} type={"delete"} />
+          <div className="flex justify-center">
+            <Button name={"Guardar"} type={"submit"} />
+          </div>
         </Forms>
       </>
     );
