@@ -1,5 +1,12 @@
 import Slider from "../../Components/Slider"
-
+import historia1 from '../../assets/img/historia1.jpg'
+import historia2 from '../../assets/img/historia2.jpg'
+import historia3 from '../../assets/img/historia3.jpg'
+import historia4 from '../../assets/img/historia4.jpg'
+import historia5 from '../../assets/img/historia5.jpg'
+import historia6 from '../../assets/img/historia6.jpg'
+import historia7 from '../../assets/img/historia7.jpg'
+import historia8 from '../../assets/img/historia8.jpg'
 function Historia() {
     return (
         <section className="w-[90%] flex flex-col items-center mb-4">
@@ -40,20 +47,20 @@ function Historia() {
                                 Zona urbana: 93,6%,
                                 Zona rural: 88,4%.
                             </p>
-                            
+
                             <h3 className="text-end font-semibold">Etnografìa</h3>
                             <p className="text-end border-b-2">
                                 Mestizos y caucásicos   (99,6%),
                                 Afrodescendientes (0,4%).
                             </p>
-                            
+
                             <h3 className="font-semibold">Fundaciòn</h3>
                             <p className="border-b-2">
                                 1 Julio 1778,
                                 José María Londoño y Vicente Toro,
                                 Emporio papero.
                             </p>
-                            
+
                             <h3 className="text-end font-semibold">Economìa</h3>
                             <p className="text-end border-b-2">
                                 Agricultura,
@@ -61,7 +68,7 @@ function Historia() {
                                 Mineria,
                                 Piscicultura.
                             </p>
-                            
+
                             <h3 className=" font-semibold">Agricultura</h3>
                             <p className="">
                                 Papa, Maìz, Frijol, Legumbre, Fresa, Uchuva, Mora, Aguacate.
@@ -71,9 +78,12 @@ function Historia() {
                 </article>
             </section>
             {/* implementacion de slider */}
+            <h1 className=" text-4xl font-light mb-4 text-[#14A44D] mt-2">
+                La Unión a través del tiempo
+            </h1>
             <Slider
                 width={'w-[100%]'}
-                data={[]}
+                data={[historia1, historia2, historia3, historia4, historia5, historia6, historia7, historia8]}
             />
         </section >
     )

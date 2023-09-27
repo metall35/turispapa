@@ -1,5 +1,7 @@
 import Card from "../../Components/CardLong"
-import restaurante from "../../assets/img/restaurante.jpg"
+import tumbarancho from "../../assets/img/tumbarancho.jpg"
+import arepas_chocolo from "../../assets/img/arepas_chocolo.jpg"
+import deli_pollo from "../../assets/img/deli_pollo.jpg"
 import { TbBrandWhatsapp } from "react-icons/tb"
 import { TbBrandInstagram } from "react-icons/tb"
 import { BsFacebook } from "react-icons/bs"
@@ -9,18 +11,27 @@ function Restaurantes() {
     const restaurantes = [
       {
         id: 1,
-        title: "Casa El Ramal",
-        img: restaurante,
-        direction: "Cra 43D #10 - 72 El Poblado, Medellín",
+        title: "Tumbarancho",
+        img: tumbarancho,
+        direction: "Cr.9 #9-08",
         linkWhatsApp: "https://web.whatsapp.com/",
         linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
         linkFacebook: "https://es-la.facebook.com/",
       },
       {
         id: 3,
-        title: "Hotel Experience",
-        img: restaurante,
-        direction: "Boulevard Kukulcan km 1 Zona Turistica",
+        title: "Arepas de chocolo la mejor ",
+        img: arepas_chocolo,
+        direction: "Cr.9 #8-61",
+        linkWhatsApp: "https://web.whatsapp.com/",
+        linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        linkFacebook: "https://es-la.facebook.com/",
+      },
+      {
+        id: 5,
+        title: "Deli pollo ",
+        img: deli_pollo,
+        direction: "Cr.9 #8-62 Dos cuadras del parque principal",
         linkWhatsApp: "https://web.whatsapp.com/",
         linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
         linkFacebook: "https://es-la.facebook.com/",
