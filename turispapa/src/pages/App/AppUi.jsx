@@ -12,6 +12,7 @@ import Hoteles from "../Hoteles";
 import Agencias from "../Agencias";
 import Rutas from "../Rutas";
 import Asistencias from "../Asistencias";
+//import Asistenciass from "../Asistenciass"
 import Entretenimiento from "../Entretenimiento"
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
@@ -37,6 +38,7 @@ function AppRoutes() {
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },
+        //{ path: '/asistenciass', element: <Asistenciass /> },
         { path: '/asistencias', element: <Asistencias /> },
         { path: '/*', element: <NotFound /> },
 
