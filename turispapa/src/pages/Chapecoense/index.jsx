@@ -1,6 +1,10 @@
 import InicioChapeco from "../../Components/Chapeco/Inicio"
 import Slider from "../../Components/Slider"
 import cruz from '../../assets/img/cruz2.jpg'
+import p1 from '../../assets/img/aventura.jpg';
+import p5 from '../../assets/img/ala.jpg'
+import p6 from '../../assets/img/avion.jpg'
+import p9 from '../../assets/img/vista_avion.jpg'
 function Chapecoense() {
     return (
         <section className="w-[90%]">
@@ -9,6 +13,7 @@ function Chapecoense() {
                 <h2 className="font-semibold text-lg text-center mt-4 py-4 text-[#14A44D]">Imagenes chapecoense</h2>
                 <Slider
                     width={'100%'}
+                    data={[p1,p5,p6,p9]}
                 />
             </article>
             <section className="my-8 flex max-md:flex-col items-center gap-4">

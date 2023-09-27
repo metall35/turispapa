@@ -73,6 +73,7 @@ function Historia() {
             {/* implementacion de slider */}
             <Slider
                 width={'w-[100%]'}
+                data={[]}
             />
         </section >
     )
