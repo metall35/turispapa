@@ -1,5 +1,5 @@
 import Card from "../../Components/CardLong"
-import tumbarancho from "../../assets/img/tumbarancho.jpg"
+import tumbarancho from "../../assets/img/restaurante.jpg"
 import arepas_chocolo from "../../assets/img/arepas_chocolo.jpg"
 import deli_pollo from "../../assets/img/deli_pollo.jpg"
 import { TbBrandWhatsapp } from "react-icons/tb"
@@ -21,7 +21,7 @@ function Restaurantes() {
       {
         id: 3,
         title: "Arepas de chocolo la mejor ",
-        img: arepas_chocolo,
+        img: tumbarancho,
         direction: "Cr.9 #8-61",
         linkWhatsApp: "https://web.whatsapp.com/",
         linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
@@ -30,7 +30,7 @@ function Restaurantes() {
       {
         id: 5,
         title: "Deli pollo ",
-        img: deli_pollo,
+        img: tumbarancho,
         direction: "Cr.9 #8-62 Dos cuadras del parque principal",
         linkWhatsApp: "https://web.whatsapp.com/",
         linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",

@@ -1,7 +1,7 @@
 import Card from "../../Components/CardShort"
-import hawai from "../../assets/img/hawai.jpg"
-import bodegon from "../../assets/img/bodegon.jpg"
-import bohio from "../../assets/img/bohio.jpg"
+import hawai from "../../assets/img/disco.jpg"
+import bodegon from "../../assets/img/disco3.jpg"
+import bohio from "../../assets/img/disco2.jpg"
 import niagara from "../../assets/img/niagara.jpg"
 import angely from "../../assets/img/angely.jpg"
 import drinkhause from "../../assets/img/drinkhause.jpg"
@@ -41,37 +41,36 @@ function establecimiEntretenimiento() {
           linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
           linkFacebook: "https://es-la.facebook.com/"
         },
-        {
-          id: 4,
-          title: 'Salón social Niágara',
-          img: niagara,
-          description: "Citio de ocio nocturno, bar",
-          direction: "Crr10 n10.05",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
-        {
-          id: 5,
-          title: 'Angely disco bar',
-          img: angely,
-          description: "Disco-bar",
-          direction: "Cll10 n10-20",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
-        {
-          id: 6,
-          title: 'Drink hause',
-          img: drinkhause,
-          description: "Bar discoteca",
-          direction: "Calle del comercio",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
-       
+        // {
+        //   id: 4,
+        //   title: 'Salón social Niágara',
+        //   img: niagara,
+        //   description: "Citio de ocio nocturno, bar",
+        //   direction: "Crr10 n10.05",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
+        // {
+        //   id: 5,
+        //   title: 'Angely disco bar',
+        //   img: angely,
+        //   description: "Disco-bar",
+        //   direction: "Cll10 n10-20",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
+        // {
+        //   id: 6,
+        //   title: 'Drink hause',
+        //   img: drinkhause,
+        //   description: "Bar discoteca",
+        //   direction: "Calle del comercio",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
     ]
     return (
       <>

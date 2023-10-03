@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import Map, { Marker, NavigationControl, Source, Layer } from 'react-map-gl';
+import Map, { Marker, NavigationControl, Source, Layer } from 'react-map-gl'
+import { HiOutlineLocationMarker } from 'react-icons/hi'
+import React, { useState, } from 'react'
+import Button from '../Forms/Elements/Buttons'
+import { randomColor } from 'randomcolor'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import axios from 'axios';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { randomColor } from 'randomcolor';
-
+let i = 0
 const Mapa = () => {
-    const [viewport, setViewport] = useState({
-        longitude: -75.3614029,
-        latitude: 5.9736872,
-        zoom: 18,
-    });
     const [origin, setOrigin] = useState(null);
     const [destinations, setDestinations] = useState([]);
     const [routeData, setRouteData] = useState(null);
@@ -18,14 +14,15 @@ const Mapa = () => {
     const [duration, setDuration] = useState(null);
     const [distance, setDistance] = useState(null);
     const [steps, setSteps] = useState([]);
+    let routeSteps
 
     const calculateRoute = async () => {
         if (origin && destinations.length > 0) {
-            const apiKey = 'pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'; // Reemplaza con tu clave de API de Directions
+            const apiKey = 'pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'; //clave de API de Directions
             const destinationCoordinates = destinations.map(
                 (destination) => `${destination.longitude},${destination.latitude}`
             );
-            const apiUrl = `https://api.mapbox.com/directions/v5/mapbox/driving/${origin.longitude},${origin.latitude};${destinationCoordinates.join(
+            const apiUrl = `https://api.mapbox.com/directions/v5/mapbox/walking/${origin.longitude},${origin.latitude};${destinationCoordinates.join(
                 ';'
             )}?alternatives=true&continue_straight=true&geometries=geojson&language=es&overview=full&steps=true&access_token=${apiKey}`;
             if (loaderRoute) {
@@ -33,7 +30,6 @@ const Mapa = () => {
                     const response = await axios.get(apiUrl);
                     const data = response.data;
                     // Maneja la respuesta de la API aquí (puedes mostrar la ruta en el mapa)
-                    console.log(data);
                     setRouteData(data);
                     setLoaderRoute(false);
 
@@ -41,19 +37,19 @@ const Mapa = () => {
                     const route = data.routes[0];
                     const routeDuration = route.duration / 60; // Duración en minutos
                     const routeDistance = route.distance / 1000; // Distancia en kilómetros
-                    setDuration(routeDuration.toFixed(2)); // Redondea a 2 decimales
-                    setDistance(routeDistance.toFixed(2)); // Redondea a 2 decimales
-
+                    setDuration(routeDuration.toFixed(2));
+                    setDistance(routeDistance.toFixed(2));
+                    // console.log(route.legs[i].steps);
                     // Obtener los pasos
-                    const routeSteps = route.legs[0].steps;
+                    routeSteps = route.legs[i].steps;
                     setSteps(routeSteps);
+                    i++
                 } catch (error) {
                     console.error('Error al calcular la ruta:', error);
                 }
             }
         }
     };
-
     const handleMapClick = (event) => {
         const { lat, lng } = event.lngLat;
 
@@ -70,10 +66,18 @@ const Mapa = () => {
     };
     calculateRoute();
 
+    const reset = () => {
+        setDestinations([])
+        setDuration(null)
+        setDistance(null)
+        setSteps([])
+        setRouteData(null)
+        i = 0
+    }
     return (
-        <div className='flex justify-center flex-col items-center mb-8 w-full'>
+        <section className=' mb-8 w-full border border-slate-300/50 shadow-lg rounded-lg overflow-hidden p-2'>
             <Map
-                style={{ width: '80%', height: 600 }}
+                style={{ width: '100%', height: 560 }}
                 mapStyle='mapbox://styles/mapbox/streets-v12'
                 mapboxAccessToken='pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'
                 onClick={handleMapClick}
@@ -148,8 +152,14 @@ const Mapa = () => {
                         </ol>
                     </div>
                 )}
+                <button
+                    className='hover:bg-sky-600/60 bg-sky-600/50 active:bg-sky-600/75 py-2 px-4 rounded-lg text-center w-24 text-neutral-100 font-bold  absolute bottom-6 right-2'
+                    onClick={() => reset()}
+                >
+                    Reiniciar
+                </button>
             </Map>
-        </div>
+        </section>
     );
 };
 

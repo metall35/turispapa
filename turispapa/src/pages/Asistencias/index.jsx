@@ -1,10 +1,10 @@
 import Card from "../../Components/CardShort"
-import mercado_precio_especial from "../../assets/img/mercado_precio_especial.jpg"
+import mercado_precio_especial from "../../assets/img/mercado.jpg"
 import d1 from "../../assets/img/d1.jpg"
 import auto_servicio from "../../assets/img/auto_servicio.jpg"
 import ganadero_popular from "../../assets/img/ganadero_popular.jpg"
-import rebaratas from "../../assets/img/rebaratas.jpg"
-import confiar from "../../assets/img/confiar.jpg"
+import rebaratas from "../../assets/img/farma.jpg"
+import confiar from "../../assets/img/caej.jpg"
 import agrario from "../../assets/img/agrario.jpg"
 import { TbBrandWhatsapp } from "react-icons/tb"
 
@@ -20,36 +20,36 @@ function Asistenciass() {
           linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
           linkFacebook: "https://es-la.facebook.com/"
         },
-        {
-          id: 2,
-          title: 'Tienda D1',
-          img: d1,
-          description: "Sitio para el abastecimiento de víveres",
-          direction: "Crr9 n10-42",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
-        {
-          id: 3,
-          title: 'Auto servicio merque-casa',
-          img: auto_servicio,
-          description: "Sitio para el abastecimiento de víveres",
-          direction: "Crr10 n9-45",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
-        {
-          id: 4,
-          title: 'Ganadero Popular',
-          img: ganadero_popular,
-          description: "Venta y distribución de medicamentos",
-          direction: "Crr9 n11-52",
-          linkWhatsApp: "https://web.whatsapp.com/",
-          linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
-          linkFacebook: "https://es-la.facebook.com/"
-        },
+        // {
+        //   id: 2,
+        //   title: 'Tienda D1',
+        //   img: d1,
+        //   description: "Sitio para el abastecimiento de víveres",
+        //   direction: "Crr9 n10-42",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
+        // {
+        //   id: 3,
+        //   title: 'Auto servicio merque-casa',
+        //   img: auto_servicio,
+        //   description: "Sitio para el abastecimiento de víveres",
+        //   direction: "Crr10 n9-45",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
+        // {
+        //   id: 4,
+        //   title: 'Ganadero Popular',
+        //   img: ganadero_popular,
+        //   description: "Venta y distribución de medicamentos",
+        //   direction: "Crr9 n11-52",
+        //   linkWhatsApp: "https://web.whatsapp.com/",
+        //   linkInstagram: "https://www.instagram.com/hoteleltesorosonson/?hl=en",
+        //   linkFacebook: "https://es-la.facebook.com/"
+        // },
         {
           id: 5,
           title: 'Drogas rebaratas La Union',
