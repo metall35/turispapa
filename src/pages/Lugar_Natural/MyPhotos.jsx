@@ -1,5 +1,5 @@
 import iglGrid from '../../assets/imgHeader.svg';
-import IglAtardecer from '../../assets/img/iglAtardecer.jpg'
+import IglAtardecer from '../../assets/img/IglAtardecer.jpg'
 import ecoparque from '../../assets/img/ecoparque.jpg'
 import museo from '../../assets/img/entretenimiento.jpg'
 import natural from '../../assets/img/naturaleza.jpg'
