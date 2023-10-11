@@ -152,6 +152,7 @@ const Mapa = () => {
                         </ol>
                     </div>
                 )}
+                {/* button de reset */}
                 <button
                     className='hover:bg-sky-600/60 bg-sky-600/50 active:bg-sky-600/75 py-2 px-4 rounded-lg text-center w-24 text-neutral-100 font-bold  absolute bottom-6 right-2'
                     onClick={() => reset()}
