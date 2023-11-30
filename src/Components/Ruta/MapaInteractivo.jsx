@@ -48,7 +48,6 @@ const Mapa = () => {
                     console.error('Error al calcular la ruta:', error);
                 }
             }
-            console.log(apiKey);
         }
     };
     const handleMapClick = (event) => {
