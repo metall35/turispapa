@@ -119,7 +119,6 @@ interacciones del usuario. */
                   >
                     {slinks.Head}
                   </h1>
-                  {console.log(slinks)}
                   {slinks.sublink.map((slink) => (
                     <li className="py-3 pl-14" key={slink.name}>
                       <Link to={slink.link}>{slink.name}</Link>

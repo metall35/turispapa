@@ -1,8 +1,7 @@
-import React, { useState, useContext } from "react";
+import { useContext } from "react";
 import { TurisContext } from "../../../Context";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import useSendData from "../../../hooks/useSendData";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
@@ -10,7 +9,7 @@ import Select from "../Elements/Select";
 import TextArea from "../Elements/TextArea";
 
 export default function FormEstablecimiento() {
-    const { inputs, setInputs, setLoader } = useContext(TurisContext)
+    const { inputs } = useContext(TurisContext)
     const navigate = useNavigate()
     const Inputs = [
         {
@@ -23,7 +22,7 @@ export default function FormEstablecimiento() {
         {
             id: 2,
             type: 'text',
-            name: 'Dirección',
+            name: 'Direccion',
             placeholder: 'Ingrese la dirección del establecimiento',
             required: true
         },
@@ -56,71 +55,19 @@ export default function FormEstablecimiento() {
             required: true
         },
     ]
-    // console.log(inputs.establecimiento);
-    const onSubmit = event => {
-        const url = 'http://localhost:8000/api/establecimiento'
-        event.preventDefault()
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "Confirma que la información sea correcta.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#6fc390',
-            cancelButtonColor: '#FF4747',
-            confirmButtonText: 'Si, estoy seguro!',
-            cancelButtonText: 'Cancelar'
-        }
-        ).then((result) => {
-            if (result.isConfirmed) {
-                setLoader(true)
-                axios.post(url, {
-                    nombre: inputs.Nombre,
-                    localidad: inputs.Localidad,
-                    direccion: inputs.Dirección,
-                    telefono: inputs.Contacto,
-                    descripcion: inputs.Descripción,
-                    tipo_negocio: inputs.establecimiento,
-                    propietario: inputs.Propietario,
-                    id_usuario: 3,
-                    id_estado: 2,
-                    logo: inputs.Logo,
-                    redes_id: 3,
-                    detalle: inputs.Carta || inputs.Habitación
-                })
-                    .then(function (response) {
-                        Swal.fire({
-                            title: '¡Bien!',
-                            text: 'La información a sido guardada correctamente. Será redireccionado a la página principal.',
-                            icon: 'success',
-                            showConfirmButton: false,
-                            timer: 2500
-                        }).then(() => {
-                            setInputs({})
-                            setLoader(false)
-                            navigate("/", {
-                                replace: true,
-                            });
-                        })
-                    })
-                    .catch(function (err) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: `Parece que hubo un error, código: ${err.response.status} ${err.code}`,
-                            confirmButtonColor: '#6fc390'
-                        })
-                        setLoader(false)
-                    })
-                console.log(inputs);
-            }
 
-        })
-        setLoader(false)
+    const onSubmit = () => {
+        //envio de datos
+        navigate("/", {
+            replace: true,
+        });
     }
+    const handleSubmit = useSendData("establecimiento", onSubmit)
+
     return (
         <Forms>
             <h1 className="text-center my-2 mb-8 text-xl font-semibold">Formulario de ingreso de establecimientos</h1>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-3" onSubmit={onSubmit}>
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-3" onSubmit={handleSubmit}>
                 {Inputs.map(input => (
                     <Input
                         key={input.id}
@@ -159,7 +106,6 @@ export default function FormEstablecimiento() {
                         name={'Enviar'}
                     />
                 </div>
-
             </form>
         </Forms>
     )
