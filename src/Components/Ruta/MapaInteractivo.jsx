@@ -1,9 +1,9 @@
 import Map, { Marker, NavigationControl, Source, Layer } from 'react-map-gl'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import React, { useState, } from 'react'
-import Button from '../Forms/Elements/Buttons'
 import { randomColor } from 'randomcolor'
 import 'mapbox-gl/dist/mapbox-gl.css'
+// import { process } from 'process';
 import axios from 'axios';
 let i = 0
 const Mapa = () => {
@@ -18,7 +18,7 @@ const Mapa = () => {
 
     const calculateRoute = async () => {
         if (origin && destinations.length > 0) {
-            const apiKey = 'pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'; //clave de API de Directions
+            const apiKey = import.meta.env.VITE_API_KEY_MAPBOX; //clave de API de Directions
             const destinationCoordinates = destinations.map(
                 (destination) => `${destination.longitude},${destination.latitude}`
             );

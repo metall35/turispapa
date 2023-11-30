@@ -118,28 +118,12 @@ interacciones del usuario. */
                     className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
                   >
                     {slinks.Head}
-
-                    <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <ion-icon
-                        name={`${
-                          subHeading === slinks.Head
-                            ? "chevron-up"
-                            : "chevron-down"
-                        }`}
-                      ></ion-icon>
-                    </span>
                   </h1>
-                  <div
-                    className={`${
-                      subHeading === slinks.Head ? "md:hidden" : "hidden"
-                    }`}
-                  >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14" key={slink.name}>
-                        <Link to={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
-                  </div>
+                  {slinks.sublink.map((slink) => (
+                    <li className="py-3 pl-14" key={slink.name}>
+                      <Link to={slink.link}>{slink.name}</Link>
+                    </li>
+                  ))}
                 </div>
               </div>
             ))}
