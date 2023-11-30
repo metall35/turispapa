@@ -1,5 +1,5 @@
 import iglGrid from '../../assets/imgHeader.svg';
-import IglAtardecer from '../../assets/img/IglAtardecer.jpg'
+import iglAtardecer from '../../assets/img/IglAtardecer.jpg'
 import ecoparque from '../../assets/img/ecoparque.jpg'
 import museo from '../../assets/img/entretenimiento.jpg'
 import natural from '../../assets/img/naturaleza.jpg'
@@ -15,7 +15,7 @@ export const photos = [
     },
     {
         id: 2,
-        imagen: IglAtardecer,
+        imagen: iglAtardecer,
         titulo: "Iglesia",
         descripcion: "Atardecer desde el parque principal.",
         estilo: "col-span-1"
