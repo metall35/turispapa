@@ -5,14 +5,43 @@
  */
 import { useContext } from "react";
 import { TurisContext } from "../Context";
+import FormData from 'form-data';
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const useSendData = (url, onSubmit) => {
     const { inputs, setInputs, setLoader } = useContext(TurisContext);
+    const formData = new FormData()
+    formData.append("id_estado", 1)
+
+    /**
+     * La función `convertData` convierte datos de entrada en pares clave-valor y los agrega a un objeto de
+     * datos de formulario, excluyendo la clave 'id_estado'.
+     */
+    const convertData = () => {
+        const input = Object.entries(inputs);
+
+        for (const [key, value] of input) {
+            if (key !== 'id_estado') {
+                // console.log(`la key es: ${key} y su valor es ${value}`);
+                formData.append(key, value);
+            }
+        }
+    };
+
+    /**
+     * La función `aceptSubmit` es una función asincrónica que maneja el envío de formularios enviando
+     * datos a una API backend y mostrando mensajes de éxito o error usando SweetAlert.
+     */
     const aceptSubmit = async () => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}`, {...inputs, id_estado: 1});
+            convertData()
+
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
             Swal.fire({
                 title: "¡Bien!",
                 text: "La información a sido guardada correctamente. Será redireccionado a la página principal.",
@@ -40,6 +69,11 @@ const useSendData = (url, onSubmit) => {
         e.preventDefault();
         confirmSubmit();
     };
+    /**
+     * La función `confirmSubmit` muestra un cuadro de diálogo de confirmación usando SweetAlert y, si
+     * el usuario confirma, llama a `aceptSubmit`, configura un cargador y registra los datos del
+     * formulario.
+     */
     const confirmSubmit = () => {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -58,6 +92,6 @@ const useSendData = (url, onSubmit) => {
             }
         })
     }
-    return  handleSubmit
+    return handleSubmit
 };
 export default useSendData;

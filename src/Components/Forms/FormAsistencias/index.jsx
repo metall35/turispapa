@@ -29,13 +29,13 @@ export default function FormAsistencia() {
             placeholder: 'Ingrese el tipo de establecimiento',
             required: true
         },
-        // {
-        //     id: 4,
-        //     type: 'file',
-        //     name: 'Imagen',
-        //     placeholder: '',
-        //     required: true
-        // },
+        {
+            id: 4,
+            type: 'file',
+            name: 'Imagen',
+            placeholder: '',
+            required: true
+        },
     ]
     const onSubmit = () => {
         //envio de datos
