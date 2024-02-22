@@ -12,13 +12,20 @@ import Hoteles from "../Hoteles";
 import Agencias from "../Agencias";
 import Rutas from "../Rutas";
 import Asistencias from "../Asistencias";
+import Admin from "../Administrador"
 //import Asistenciass from "../Asistenciass"
 import Entretenimiento from "../Entretenimiento"
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
 import { Navbar } from "../../Components/Navbar/Navbar";
+import { NavbarAdmin } from "../../Components/NavbarAdmin/NavbarAdmin";
 import Loader from '../../Components/Loader'
+import FormEventos from '../../Components/Forms/FormEventos'
+import FormAsistencias from '../../Components/Forms/FormAsistencias'
+import FormEstablecimieno from '../../Components/Forms/FormEstablecimieno'
+import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
+import { useState } from "react";
 
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
@@ -40,6 +47,11 @@ function AppRoutes() {
         { path: '/rutas', element: <Rutas /> },
         //{ path: '/asistenciass', element: <Asistenciass /> },
         { path: '/asistencias', element: <Asistencias /> },
+        { path: '/FormEventos', element: <FormEventos /> },
+        { path: '/FormAsistencias', element: <FormAsistencias /> },
+        { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
+        { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
+        { path: '/administrador', element: <Admin /> },
         { path: '/*', element: <NotFound /> },
 
     ])
@@ -50,10 +62,11 @@ Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
     const {loader} = useContext(TurisContext)
+    const [isAdmin] = useState(true);
     return (
         <>
             <BrowserRouter>
-                <Navbar/>
+                {isAdmin ? <NavbarAdmin /> : <Navbar />}
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
