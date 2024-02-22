@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TurisContext } from "../../../../Context/";
 
 const TextArea = ({ name, placeholder, required }) => {
     const requiredStyle = required ? "after:content-['*'] after:ml-0.5 after:text-red-500" : ''
     const { inputs, setInputs } = useContext(TurisContext)
-
+    const [textoLimpio, setTextoLimpio] = useState("")
+    const Name = name.toLowerCase()
+    const sinTildes = Name.replace(/[áéíóú]/g, "o");
+    
     const onChange = e => {
-        setInputs({ ...inputs, [name]: e.target.value })
+        // setTextoLimpio(e.target.value.replaceAll(/<[^>]*>/g, ""))
+        setInputs({ ...inputs, [sinTildes]: e.target.value })
     }
     return (
         <label

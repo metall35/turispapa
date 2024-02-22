@@ -13,7 +13,7 @@ function Historia() {
             <section className="grid md:grid-cols-4 grid-rows-1 gap-6 mb-4">
                 <div className="md:col-span-3">
                     <h1 className=" text-4xl font-light mb-4 text-[#14A44D]">
-                        Emporio Papero
+                        Historia del municipio
                     </h1>
                     <div className="flex flex-col gap-2">
                         <p className="">

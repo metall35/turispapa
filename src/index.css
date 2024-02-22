@@ -17,5 +17,13 @@
 
 * {
     font-family: 'Heebo', sans-serif;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Titillium Web', sans-serif;    
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.bg-login{
+    clip-path: polygon(42% 0, 100% 0%, 100% 100%, 0% 100%);
 }

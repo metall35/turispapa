@@ -1,5 +1,5 @@
 import Establecimientos from "./establecimientosEnt";
-import FormE from '../../Components/Forms/FormAsistencias'
+import FormE from '../../Components/Forms/FormEstablecimiento'
 function Entretenimiento() {
   return (
     <section className="w-[90%] flex items-center justify-center flex-col">

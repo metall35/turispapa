@@ -50,7 +50,7 @@ export default function FormEstablecimiento() {
         {
             id: 6,
             type: 'file',
-            name: 'Logo',
+            name: 'Imagen',
             placeholder: '',
             required: true
         },
@@ -79,7 +79,7 @@ export default function FormEstablecimiento() {
                 ))}
                 <Select
                     label="Tipo de establecimiento"
-                    name="establecimiento"
+                    name="tipo_negocio"
                     options={[
                         {
                             value: "Restaurante",
