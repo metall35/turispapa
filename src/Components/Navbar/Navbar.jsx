@@ -47,7 +47,7 @@ representa un encabezado y una barra de navegación. */
   return (
     <>
       <header
-        className="h-[500px] bg-cover bg-no-repeat bg-fixed bg-center"
+        className="h-[650px] bg-cover bg-no-repeat bg-fixed bg-center"
         style={{ backgroundImage: `url(${imgHeader})` }}
       >
         <nav
