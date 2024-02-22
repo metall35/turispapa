@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { TurisContext } from "../../Context";
+import imgHeader from "../../assets/img/ImgAsistencias.jpg"
 import Card from "../../Components/CardShort"
 import useGetData from "../../hooks/useGetData"
 
 function Asistenciass() {
+  const {setImageNav} = useContext(TurisContext)
+  setImageNav(imgHeader)
   const establecEntretenimiento = useGetData("asistencia")
     return (
       <section className="w-[90%]">

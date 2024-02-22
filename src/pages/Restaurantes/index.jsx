@@ -1,14 +1,17 @@
 import Card from "../../Components/CardLong"
 import tumbarancho from "../../assets/img/restaurante.jpg"
-import arepas_chocolo from "../../assets/img/arepas_chocolo.jpg"
-import deli_pollo from "../../assets/img/deli_pollo.jpg"
+import imgHeader from "../../assets/img/cascada-parque.jpg"
 import { TbBrandWhatsapp } from "react-icons/tb"
 import { TbBrandInstagram } from "react-icons/tb"
 import { BsFacebook } from "react-icons/bs"
 import { BiArrowToRight } from "react-icons/bi"
 import useGetData from "../../hooks/useGetData"
+import { useContext } from "react"
+import { TurisContext } from "../../Context"
 
 function Restaurantes() {
+  const {setImageNav} = useContext(TurisContext)
+  setImageNav(imgHeader)
   const data = useGetData("establecimiento")
   const dataRestaurante = data.filter(establecimiento => {
     return establecimiento.tipo_negocio === "Restaurante"

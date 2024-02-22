@@ -1,5 +1,10 @@
+import { useContext } from 'react';
 import { GalPhotos } from './GalPhotos';
+import imgHeader from '../../assets/img/IglAtardecer1.jpg';
+import { TurisContext } from '../../Context';
 function Lugar_Natural() {
+  const {setImageNav} = useContext(TurisContext)
+  setImageNav(imgHeader)
 
   return (
     <section className="w-[80%] flex flex-col items-center mb-4">
