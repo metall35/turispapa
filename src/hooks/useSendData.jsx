@@ -13,6 +13,8 @@ const useSendData = (url, onSubmit) => {
     const { inputs, setInputs, setLoader } = useContext(TurisContext);
     const formData = new FormData()
     formData.append("id_estado", 1)
+    formData.append("redes_id", 1)
+    formData.append("id_usuario", 1)
 
     /**
      * La función `convertData` convierte datos de entrada en pares clave-valor y los agrega a un objeto de
@@ -22,7 +24,7 @@ const useSendData = (url, onSubmit) => {
         const input = Object.entries(inputs);
 
         for (const [key, value] of input) {
-            if (key !== 'id_estado') {
+            if (key !== 'id_estado' || key !== 'redes_id' || key !== 'id_usuario') {
                 // console.log(`la key es: ${key} y su valor es ${value}`);
                 formData.append(key, value);
             }

@@ -67,7 +67,7 @@ export default function FormLugaresNaturales() {
                 ))}
                 <Select
                     label="Tipo de evento"
-                    name="evento"
+                    name="tipo_evento"
                     options={[
                         {
                             value: "Público",
