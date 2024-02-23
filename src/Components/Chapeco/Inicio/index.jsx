@@ -9,7 +9,7 @@ export default function InicioChapeco() {
                 <img src={liston} />
             </figure>
             <div className="w-[100%] md:w-[45%] md:mt-0 mt-20">
-                <h1 className="text-xl font-bold mb-4 text-[#14A44D]">
+                <h1 className="text-2xl font-bold mb-4 text-[#14A44D]">
                     En memoria al equipo Chapecoense
                 </h1>
                 <p className=" text-sm mb-4">

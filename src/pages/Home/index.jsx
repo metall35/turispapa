@@ -18,9 +18,12 @@ function Home() {
     setImageNav(imgHeader)
     return (
         <>
-            <h1 className="mb-6 text-2xl font-semibold">Vive La Unión: Más que un destino, una experiencia</h1>
+            <h1 className="mb-6 text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-green-550 to-yellow-500">
+            Vive La Unión: Más que un destino, una experiencia
+            </h1>
+
             <Experiencias />
-            <h2 className=' text-center m-4 font-semibold text-lg '>La Unión: Un Mundo de Experiencias</h2>
+            <h2 className='m-4 text-center font-bold text-2xl text-green-500'>La Unión: Un Mundo de Experiencias</h2>
             <Slider
                 width={'w-[80%]'}
                 data={[p2, p3, p4, p7, p8]}
