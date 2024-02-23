@@ -69,7 +69,6 @@ function AppUi() {
             <BrowserRouter>
                 {isAdmin ? <NavbarAdmin /> : <Navbar />}
                 <UseScrollToTop />
-                <Navbar />
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
