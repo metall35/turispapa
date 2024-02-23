@@ -1,5 +1,8 @@
+import { useContext } from "react"
+import { TurisContext } from "../../Context"
 import Card from "../../Components/CardLong"
 import hotel from "../../assets/img/hotel1.png"
+import imgHeader from "../../assets/img/cascada-parque.jpg"
 import { TbBrandWhatsapp } from "react-icons/tb"
 import { TbBrandInstagram } from "react-icons/tb"
 import { BsFacebook } from "react-icons/bs"
@@ -7,6 +10,8 @@ import { BiArrowToRight } from "react-icons/bi"
 import useGetData from "../../hooks/useGetData"
 
 function Hoteles() {
+  const {setImageNav} = useContext(TurisContext)
+  setImageNav(imgHeader)
   const data = useGetData("establecimiento")
   const dataHotel = data.filter(establecimiento => {
     return establecimiento.tipo_negocio === "Hotel"
