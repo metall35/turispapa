@@ -7,9 +7,9 @@
  */
 export default function CardLong({data, children}) {
     return (
-        <div className={`flex flex-wrap-reverse ${data.id % 2 == 0 ? 'flex-row-reverse' : 'flex-row' } lg:justify-evenly items-center justify-center w-full border-b-2 border-[#14A44D] p-2 mb-4`}>
+        <div className={`flex flex-wrap-reverse ${data.id_eventos % 2 == 0 ? 'flex-row-reverse' : 'flex-row' } lg:justify-evenly items-center justify-center w-full border-b-2 border-[#14A44D] p-2 mb-4`}>
             <figure className='max-w-[360px] rounded-lg overflow-hidden my-2 shadow-md shadow-zinc-500 '> 
-                <img src={data.img} alt={data.title} />
+                <img src={data.imagen} alt={data.nombre} />
             </figure>
             <div className='lg:w-[50%] flex flex-col ml-3'>
             {children}

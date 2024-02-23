@@ -47,7 +47,7 @@ representa un encabezado y una barra de navegación. */
   return (
     <>
       <header
-        className="h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"
+        className="h-[650px] bg-cover bg-no-repeat bg-fixed bg-center"
         style={{ backgroundImage: `url(${imgHeader})` }}
       >
         <nav
@@ -68,11 +68,11 @@ representa un encabezado y una barra de navegación. */
                 </Link>
               </li>
               <NavLinks className={scroll} />
-              <li>
+              {/* <li>
                 <Link to="/entretenimiento" className="py-7 px-3 inline-block">
                   Entretenimiento
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/rutas" className="py-7 px-3 inline-block ">
                   Rutas

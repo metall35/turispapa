@@ -1,9 +1,9 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import { useContext } from "react";
 import { TurisContext } from "../../Context";
+import UseScrollToTop from "../../hooks/useScrollToTop";
 import Home from "../Home";
 import Historia from "../Historia";
-import Generalidades from "../Generalidades";
 import Chapecoense from "../Chapecoense";
 import Lugar_Natural from "../Lugar_Natural";
 import Eventos from "../Eventos";
@@ -27,6 +27,8 @@ import FormEstablecimieno from '../../Components/Forms/FormEstablecimieno'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
 import { useState } from "react";
 
+import Login from "../Login";
+
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
 objeto representa una ruta específica en la aplicación. Cada objeto de ruta tiene una propiedad
@@ -36,7 +38,6 @@ function AppRoutes() {
     let routes = useRoutes([
         { path: '/', element: <Home /> },
         { path: '/historia', element: <Historia /> },
-        { path: '/generalidades', element: <Generalidades /> },
         { path: '/chapecoense', element: <Chapecoense /> },
         { path: '/lugares-naturales', element: <Lugar_Natural /> },
         { path: '/eventos', element: <Eventos /> },
@@ -45,7 +46,7 @@ function AppRoutes() {
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },
-        //{ path: '/asistenciass', element: <Asistenciass /> },
+        { path: '/iniciar-sesion', element: <Login /> },
         { path: '/asistencias', element: <Asistencias /> },
         { path: '/FormEventos', element: <FormEventos /> },
         { path: '/FormAsistencias', element: <FormAsistencias /> },
@@ -67,11 +68,13 @@ function AppUi() {
         <>
             <BrowserRouter>
                 {isAdmin ? <NavbarAdmin /> : <Navbar />}
+                <UseScrollToTop />
+                <Navbar />
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
                 </Layout>
-                    <Footer/>
+                <Footer />
             </BrowserRouter>
         </>
     )
