@@ -73,7 +73,7 @@ function Login() {
         {
             id: 2,
             type: "password",
-            name: "Contraseña",
+            name: "Contrasena",
             placeholder: "Contraseña",
             required: true
         }
