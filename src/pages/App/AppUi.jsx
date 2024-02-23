@@ -23,7 +23,7 @@ import { NavbarAdmin } from "../../Components/NavbarAdmin/NavbarAdmin";
 import Loader from '../../Components/Loader'
 import FormEventos from '../../Components/Forms/FormEventos'
 import FormAsistencias from '../../Components/Forms/FormAsistencias'
-import FormEstablecimieno from '../../Components/Forms/FormEstablecimieno'
+import FormEstablecimieno from '../../Components/Forms/FormEstablecimiento'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
 import { useState } from "react";
 
@@ -63,7 +63,7 @@ Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
     const {loader} = useContext(TurisContext)
-    const [isAdmin] = useState(true);
+    const [isAdmin] = useState(false);
     return (
         <>
             <BrowserRouter>
