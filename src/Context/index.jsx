@@ -8,6 +8,7 @@ export function TurisContextProvider({ children }) {
     const [inputs, setInputs] = useState({})
     const [loader, setLoader] = useState(true)
     const [imageNav, setImageNav] = useState()
+    const [admin, setAdmin] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -22,6 +23,7 @@ export function TurisContextProvider({ children }) {
         }
         fetchData()
     }, []) 
+    // console.log(admin);
     return (
 /* El código está creando un componente proveedor de contexto llamado `TurisContextProvider` usando los
 ganchos `createContext` y `useState` de React. */
@@ -34,7 +36,9 @@ ganchos `createContext` y `useState` de React. */
             loader,
             setLoader,
             imageNav,
-            setImageNav
+            setImageNav,
+            admin,
+            setAdmin
         }
             }
         >

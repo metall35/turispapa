@@ -27,3 +27,16 @@ html{
 .bg-login{
     clip-path: polygon(42% 0, 100% 0%, 100% 100%, 0% 100%);
 }
+
+.toTop{
+    position: fixed;
+    top: 8%;
+    left: 0;
+    height: 100vh;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

@@ -4,9 +4,12 @@ import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 import TextArea from "../Elements/TextArea";
+import { TurisContext } from "../../../Context";
+import imgHeader from "../../../assets/img/romero.jpg"
 
 export default function FormLugaresNaturales() {
-    const { inputs, setInputs } = useContext(TurisContext)
+    const { setImageNav} = useContext(TurisContext)
+    setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
         {

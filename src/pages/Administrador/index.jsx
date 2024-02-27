@@ -6,10 +6,14 @@ import {listadoEstablecimientos} from "../../Components/TableAdmin/MyList"
 import {indexForms} from "../../Components/FormsAdmin/MyForms"
 import TableAdmin from "../../Components/TableAdmin";
 import FormAdmin from "../../Components/FormsAdmin";
+import { useContext } from "react";
+import { TurisContext } from "../../Context";
 
 function Admin() {
+    const {setAdmin} = useContext(TurisContext)
+    setAdmin(true)
     return (
-        <div className="flex h-screen bg-gray-100 w-full">
+        <div className="flex h-screen bg-gray-100 w-full toTop">
             <div className="w-64 bg-white p-4">
                 <h1 className="text-2xl font-bold mb-4">Panel de Administrador</h1>
                 <ul className="space-y-2">

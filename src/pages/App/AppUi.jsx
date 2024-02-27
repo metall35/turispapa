@@ -1,4 +1,4 @@
-import { useRoutes, BrowserRouter } from "react-router-dom";
+import { useRoutes, BrowserRouter, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { TurisContext } from "../../Context";
 import UseScrollToTop from "../../hooks/useScrollToTop";
@@ -62,18 +62,18 @@ function AppRoutes() {
 Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
-    const {loader} = useContext(TurisContext)
-    const [isAdmin] = useState(false);
+    const { loader, admin } = useContext(TurisContext)
+
     return (
         <>
             <BrowserRouter>
-                {isAdmin ? <NavbarAdmin /> : <Navbar />}
+                {admin ? <NavbarAdmin /> : <Navbar />}
                 <UseScrollToTop />
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
                 </Layout>
-                <Footer />
+                <Footer className={admin ? "footer" : ""} />
             </BrowserRouter>
         </>
     )
