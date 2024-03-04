@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { TurisContext } from "../../Context";
 import InicioChapeco from "../../Components/Chapeco/Inicio"
+import imgHeader from '../../assets/img/chapeco.png';
 import Slider from "../../Components/Slider"
 import cruz from '../../assets/img/cruz2.jpg'
 import p1 from '../../assets/img/aventura.jpg';
@@ -6,6 +9,8 @@ import p5 from '../../assets/img/ala.jpg'
 import p6 from '../../assets/img/avion.jpg'
 import p9 from '../../assets/img/vista_avion.jpg'
 function Chapecoense() {
+    const {setImageNav} = useContext(TurisContext)
+    setImageNav(imgHeader)
     return (
         <section className="w-[90%]">
             <InicioChapeco />

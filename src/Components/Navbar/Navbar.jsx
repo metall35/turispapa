@@ -1,18 +1,19 @@
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
-import imgHeader from '../../assets/imgHeader.svg';
 import { NavLinks } from "./NavLinks";
+import { TurisContext } from "../../Context";
 
 export const Navbar = () => {
+  const { imageNav } = useContext(TurisContext)
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('bg-[#eaeaf16e]');
   const [nav, setNav] = useState('h-[80px] ');
   const scrollRef = useRef(false);
-/**
- * La función `useScrolling` ajusta el color de fondo y la altura de un elemento según la posición de
- * desplazamiento de la ventana.
- */
+  /**
+   * La función `useScrolling` ajusta el color de fondo y la altura de un elemento según la posición de
+   * desplazamiento de la ventana.
+   */
 
   const useScrolling = () => {
     if (window.scrollY > 10) {
@@ -31,9 +32,9 @@ export const Navbar = () => {
     }
   }
 
-/* El gancho `useEffect` se utiliza para realizar efectos secundarios en un componente funcional. En
-este caso, se trata de agregar un detector de eventos al objeto de ventana para el evento
-"desplazamiento" y llamar a la función `useScrolling` cuando se activa el evento. */
+  /* El gancho `useEffect` se utiliza para realizar efectos secundarios en un componente funcional. En
+  este caso, se trata de agregar un detector de eventos al objeto de ventana para el evento
+  "desplazamiento" y llamar a la función `useScrolling` cuando se activa el evento. */
   useEffect(() => {
     window.addEventListener("scroll", useScrolling);
 
@@ -42,16 +43,16 @@ este caso, se trata de agregar un detector de eventos al objeto de ventana para 
     }
   }, []);
 
-/* El código define un componente funcional llamado `Navbar` en JavaScript React. El componente
-representa un encabezado y una barra de navegación. */
+  /* El código define un componente funcional llamado `Navbar` en JavaScript React. El componente
+  representa un encabezado y una barra de navegación. */
   return (
     <>
       <header
-        className="h-[650px] bg-cover bg-no-repeat bg-fixed bg-center"
-        style={{ backgroundImage: `url(${imgHeader})` }}
+        className="h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"
+        style={{ backgroundImage: `url(${imageNav})` }}
       >
         <nav
-          className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg" }
+          className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg"}
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
@@ -110,6 +111,7 @@ representa un encabezado y una barra de navegación. */
             </ul>
           </div>
         </nav>
+        {/* <div className="bg-gradient-to-r from-black/80 to-white/10 w-screen h-full "></div> */}
       </header>
     </>
   );

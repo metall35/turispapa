@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
+import { TurisContext } from "../../Context"
+import imgHeader from '../../assets/img/IglAtardecer1.jpg';
 import Card from "../../Components/CardLong"
-import PAPA from "../../assets/img/fiestasPapa.jpg"
-import virgen from "../../assets/img/virgen.jpg"
 import useGetData from "../../hooks/useGetData"
 
 function Eventos() {
+    const { setImageNav } = useContext(TurisContext)
+    setImageNav(imgHeader)
     const evento = useGetData("eventos")
     // const evento = [
     //     {

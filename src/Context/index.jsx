@@ -7,6 +7,7 @@ export function TurisContextProvider({ children }) {
     const [justifyActive, setJustifyActive] = useState("historico");
     const [inputs, setInputs] = useState({})
     const [loader, setLoader] = useState(true)
+    const [imageNav, setImageNav] = useState()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,7 +32,9 @@ ganchos `createContext` y `useState` de React. */
             inputs,
             setInputs,
             loader,
-            setLoader
+            setLoader,
+            imageNav,
+            setImageNav
         }
             }
         >
