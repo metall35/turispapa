@@ -30,7 +30,7 @@ export default function FormAsistencia() {
         {
             id: 3,
             type: 'text',
-            name: 'Tipo',
+            name: 'Nombre',
             placeholder: 'Ingrese el tipo de establecimiento',
             required: true
         },
