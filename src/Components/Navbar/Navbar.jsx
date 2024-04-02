@@ -17,7 +17,7 @@ export const Navbar = () => {
    */
 
   const useScrolling = () => {
-    if (!pathname === "/administrador") {
+    if (pathname !== "/administrador") {
       if (window.scrollY > 10) {
         if (!scrollRef.current) {
           setScroll('bg-[#ffff] transition delay-300 duration-300 ease-in h-[60px] ');

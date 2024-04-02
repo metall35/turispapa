@@ -13,7 +13,6 @@ export default function CardShort({ data }) {
     setOpenModal(true)
     setDataModal(data)
   }
-  console.log(openModal);
   return (
     <div onClick={handleModal}>
       <Card sx={{ width: 345 }}>

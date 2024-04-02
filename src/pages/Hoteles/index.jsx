@@ -7,7 +7,7 @@ import useGetData from "../../hooks/useGetData"
 function Hoteles() {
   const {setImageNav} = useContext(TurisContext)
   setImageNav(imgHeader)
-  const data = useGetData("establecimiento")
+  const data = useGetData(["establecimiento"])
   const dataHotel = data.filter(establecimiento => {
     return establecimiento.tipo_negocio === "Hotel"
   })

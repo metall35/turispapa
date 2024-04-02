@@ -7,7 +7,7 @@ import { TurisContext } from "../../Context"
 function Restaurantes() {
   const {setImageNav} = useContext(TurisContext)
   setImageNav(imgHeader)
-  const data = useGetData("establecimiento")
+  const data = useGetData(["establecimiento"])
   const dataRestaurante = data.filter(establecimiento => {
     return establecimiento.tipo_negocio === "Restaurante"
   })
