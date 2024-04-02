@@ -9,71 +9,25 @@ import Button from "../../Components/Forms/Elements/Buttons"
 import Logo from "../../assets/logo.svg"
 import ImgLogin from "../../assets/login.svg"
 import imgHeader from "../../assets/img/romero.jpg"
+import useLogin from "../../hooks/useLogin";
 
 
 function Login() {
-    const { inputs, setInputs, setLoader, setImageNav } = useContext(TurisContext);
+    const { setImageNav } = useContext(TurisContext);
     setImageNav(imgHeader)
-    const formData = new FormData()
-    const navigate = useNavigate()
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        onSubmit()
-        setLoader(true)
-    }
-    const convertData = () => {
-        const input = Object.entries(inputs);
-
-        for (const [key, value] of input) {
-            formData.append(key, value);
-        }
-    }
-    const onSubmit = async () => {
-        try {
-            convertData()
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/Login`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            Swal.fire({
-                title: "¡Bien!",
-                text: "La información a sido guardada correctamente. Será redireccionado a la página de administrador.",
-                icon: "success",
-                showConfirmButton: false,
-                timer: 2500,
-            }).then(() => {
-                // Reset inputs and loading state
-                setInputs({});
-                setLoader(false);
-                // Redirect to home page
-                navigate("/iniciar-sesion", {
-                    replace: true,
-                });
-            });
-        } catch (error) {
-            console.log(error);
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: `Parece que hubo un error: ${error.response.data.message} ${error.code}`,
-                confirmButtonColor: "#6fc390",
-            });
-            setLoader(false);
-        }
-    }
+    const handleSubmit = useLogin()
     const inputs1 = [
         {
             id: 1,
             type: "email",
-            name: "Correo",
+            name: "Email",
             placeholder: "ejemplo@gmail.com",
             required: true
         },
         {
             id: 2,
             type: "password",
-            name: "Contrasena",
+            name: "Password",
             placeholder: "Contraseña",
             required: true
         }

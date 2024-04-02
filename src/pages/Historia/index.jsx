@@ -17,7 +17,7 @@ function Historia() {
         <section className="w-[90%] flex flex-col items-center mb-4">
             <section className="grid md:grid-cols-4 grid-rows-1 gap-6 mb-4">
                 <div className="md:col-span-3">
-                    <h1 className=" text-4xl font-light mb-4 text-[#14A44D]">
+                    <h1 className=" text-3xl font-light mb-4 text-[#14A44D]">
                         Historia del municipio
                     </h1>
                     <div className="flex flex-col gap-2">
@@ -83,9 +83,9 @@ function Historia() {
                 </article>
             </section>
             {/* implementacion de slider */}
-            <h1 className=" text-4xl font-light mb-4 text-[#14A44D] mt-2">
+            <h2 className=" text-3xl font-light mb-4 text-[#14A44D] mt-2">
                 La Unión a través del tiempo
-            </h1>
+            </h2>
             <Slider
                 width={'w-[100%]'}
                 data={[historia1, historia2, historia3, historia4, historia5, historia6, historia7, historia8]}

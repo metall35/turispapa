@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import useSendData from "../../../hooks/useSendData";
 import Forms from "../../Layout/Forms";
@@ -6,8 +6,12 @@ import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 import Select from "../Elements/Select";
 import TextArea from "../Elements/TextArea";
+import { TurisContext } from "../../../Context";
+import imgHeader from "../../../assets/img/romero.jpg"
 
 export default function FormLugaresNaturales() {
+    const { setImageNav } = useContext(TurisContext)
+    setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
         {
@@ -46,7 +50,7 @@ export default function FormLugaresNaturales() {
             required: true
         },
     ]
-    const onSubmit = () =>{
+    const onSubmit = () => {
         navigate("/", {
             replace: true
         })

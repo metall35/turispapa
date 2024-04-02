@@ -7,9 +7,11 @@ import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 import Select from "../Elements/Select";
 import TextArea from "../Elements/TextArea";
+import imgHeader from "../../../assets/img/romero.jpg"
 
 export default function FormEstablecimiento() {
-    const { inputs } = useContext(TurisContext)
+    const { setImageNav } = useContext(TurisContext)
+    setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
         {

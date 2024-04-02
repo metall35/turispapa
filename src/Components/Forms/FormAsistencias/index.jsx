@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import useSendData from "../../../hooks/useSendData";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
+import { TurisContext } from "../../../Context";
+import imgHeader from "../../../assets/img/romero.jpg"
+
 
 export default function FormAsistencia() {
     const navigate = useNavigate()
+    const { setImageNav } = useContext(TurisContext)
+    setImageNav(imgHeader)
     const Inputs = [
         {
             id: 1,
@@ -25,7 +30,7 @@ export default function FormAsistencia() {
         {
             id: 3,
             type: 'text',
-            name: 'Tipo',
+            name: 'Nombre',
             placeholder: 'Ingrese el tipo de establecimiento',
             required: true
         },
@@ -39,7 +44,7 @@ export default function FormAsistencia() {
     ]
     const onSubmit = () => {
         //envio de datos
-        navigate("/", {
+        navigate("/administrador", {
             replace: true,
         });
     }
