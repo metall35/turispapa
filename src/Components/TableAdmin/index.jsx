@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 
 export default function TableAdmin({data}) {
     return (
@@ -6,11 +5,11 @@ export default function TableAdmin({data}) {
             <tr className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="py-3 px-6 text-left whitespace-nowrap">
                     <div className="flex items-center">
-                    <span className="font-medium">{data.nombreEstablecimiento}</span>
+                    <span className="font-medium">{data.nombre}</span>
                     </div>
                 </td>
-                <td className="py-3 px-6 text-left">{data.tipoEstablecimiento}</td>
-                <td className="py-3 px-6 text-center">{data.dueñoEstablecimiento}</td>
+                <td className="py-3 px-6 text-left">{data.contacto}</td>
+                <td className="py-3 px-6 text-center">{data.propietario}</td>
                 <td className="py-3 px-6 text-center font-bold text-cyan-600 cursor-pointer">Editar</td>
             </tr>
         </tbody>

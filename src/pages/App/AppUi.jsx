@@ -25,9 +25,12 @@ import FormEventos from '../../Components/Forms/FormEventos'
 import FormAsistencias from '../../Components/Forms/FormAsistencias'
 import FormEstablecimieno from '../../Components/Forms/FormEstablecimiento'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
-import { useState } from "react";
-
 import Login from "../Login";
+import ComponentModal from "../../Components/Modal";
+import ListHoteles from '../../Components/Lists/ListHoteles';
+import ListLugares from '../../Components/Lists/ListLugares';
+//import ListRestaurantes from '../../Components/List/ListRestaurantes';
+import ListRutas from '../../Components/Lists/ListRutas';
 
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
@@ -53,6 +56,10 @@ function AppRoutes() {
         { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
+        { path: '/administrador/listado-hoteles', element: <ListHoteles /> },
+        { path: '/administrador/listado-lugares', element: <ListLugares /> },
+       //   { path: '/administrador/listado-restaurantes', element: <ListRestaurantes /> },
+        { path: '/administrador/listado-rutas', element: <ListRutas /> },
         { path: '/*', element: <NotFound /> },
 
     ])
@@ -62,18 +69,19 @@ function AppRoutes() {
 Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
-    const { loader, admin } = useContext(TurisContext)
+    const { loader, admin, openModal } = useContext(TurisContext)
 
     return (
         <>
             <BrowserRouter>
-                {admin ? <NavbarAdmin /> : <Navbar />}
+                <Navbar />
                 <UseScrollToTop />
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
+                    {openModal && <ComponentModal />}
                 </Layout>
-                <Footer className={admin ? "footer" : ""} />
+                <Footer  />
             </BrowserRouter>
         </>
     )

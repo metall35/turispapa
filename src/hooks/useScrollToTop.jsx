@@ -3,9 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const UseScrollToTop = () => {
     // Extracts pathname property(key) from an object
-    const { pathname } = useLocation();
-    console.log(pathname);
-    // Automatically scrolls to top whenever pathname changes
+    const { pathname } = useLocation();    // Automatically scrolls to top whenever pathname changes
     if (pathname !== "/administrador") {
         useEffect(() => {
             setTimeout(()=>{

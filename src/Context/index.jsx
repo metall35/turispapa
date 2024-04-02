@@ -9,6 +9,9 @@ export function TurisContextProvider({ children }) {
     const [loader, setLoader] = useState(true)
     const [imageNav, setImageNav] = useState()
     const [admin, setAdmin] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+    const [dataModal, setDataModal] = useState({})
+    const [tokenSession, setTokenSession] = useState("")
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -38,7 +41,13 @@ ganchos `createContext` y `useState` de React. */
             imageNav,
             setImageNav,
             admin,
-            setAdmin
+            setAdmin,
+            openModal,
+            setOpenModal,
+            dataModal,
+            setDataModal,
+            tokenSession,
+            setTokenSession,
         }
             }
         >

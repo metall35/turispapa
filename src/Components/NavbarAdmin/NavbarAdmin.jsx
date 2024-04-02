@@ -48,8 +48,7 @@ representa un encabezado y una barra de navegación. */
   return (
     <>
       <header
-        className="h-[500px] bg-cover bg-no-repeat bg-fixed bg-center"
-        style={{ backgroundImage: `url(${imgHeader})` }}
+        className="bg-cover bg-no-repeat bg-fixed bg-center"
       >
         <nav
           className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg" }

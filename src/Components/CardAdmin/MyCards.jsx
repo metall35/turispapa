@@ -7,23 +7,27 @@ export const cardEstablecimientos = [
         id: 1,
         icono: FaHotel,
         nombre: "Hoteles",
-        color: "text-blue-300"
+        color: "text-blue-300",
+        link: "/administrador/listado-hoteles"
     },
     {
         id: 2,
         icono: BiRestaurant,
         nombre: "Restaurantes",
-        color: "text-yellow-200"
+        color: "text-yellow-200",
+        link: "/administrador/listado-restaurantes"
     },
     {
         id: 3,
         icono: FaPlaneArrival,
-        nombre: "Lugares",
+        nombre: "Asistencias",
+        link: "/administrador/listado-lugares"
     },
     {
         id: 4,
         icono: FiMapPin,
         nombre: "Rutas",
-        color: "text-emerald-300"
+        color: "text-emerald-300",
+        link: "/administrador/listado-rutas"
     }
 ]
