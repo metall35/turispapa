@@ -56,10 +56,7 @@ function AppRoutes() {
         { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
-        { path: '/administrador/listado-hoteles', element: <ListHoteles /> },
-        { path: '/administrador/listado-lugares', element: <ListLugares /> },
-       //   { path: '/administrador/listado-restaurantes', element: <ListRestaurantes /> },
-        { path: '/administrador/listado-rutas', element: <ListRutas /> },
+        { path: '/administrador/editar/:id', element: <Admin /> },
         { path: '/*', element: <NotFound /> },
 
     ])

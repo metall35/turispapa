@@ -8,6 +8,7 @@ function Asistencias() {
   const { setImageNav } = useContext(TurisContext)
   setImageNav(imgHeader)
   const { asistencia } = useGetData(["asistencia"])
+
   return (
     <section className="w-[90%]">
       <h1 className="font-bold text-3xl text-center text-[#14A44D] my-4">
