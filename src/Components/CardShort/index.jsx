@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import { TurisContext } from '../../Context';
 
+// eslint-disable-next-line react/prop-types
 export default function CardShort({ data }) {
   const { setOpenModal, setDataModal, openModal } = useContext(TurisContext)
 
@@ -13,6 +15,7 @@ export default function CardShort({ data }) {
     setOpenModal(true)
     setDataModal(data)
   }
+
   return (
     <div onClick={handleModal}>
       <Card sx={{ width: 345 }}>
@@ -28,10 +31,10 @@ export default function CardShort({ data }) {
               {data.nombre}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Contacto: {data.contacto}
+               {data.contacto || data.distancia}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              dirección: {data.direccion}
+              {data.direccion || data.duracion}
             </Typography>
           </CardContent>
         </CardActionArea>
