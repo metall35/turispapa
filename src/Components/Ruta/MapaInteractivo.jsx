@@ -78,7 +78,16 @@ const Mapa = () => {
         i = 0
     }
     return (
-        <main>
+        <>
+            <section className='mb-8'>
+                <h1 className='"font-bold text-3xl text-center text-[#14A44D] my-4"'>Rutas Predeterminadas</h1>
+                <div className='mt-5 flex gap-5 flex-wrap items-center justify-center'>
+                    {rutas?.map((data) => (
+                        <Card key={data.id} data={data} />
+                    ))}
+                </div>
+            </section>
+            <h2 className='"font-bold text-3xl text-center text-[#14A44D] mb-4"'>¡Crea tu propia ruta!</h2>
             <section className=' mb-8 w-full border border-slate-300/50 shadow-lg rounded-lg overflow-hidden p-2'>
                 <Map
                     style={{ width: '100%', height: 560 }}
@@ -165,17 +174,7 @@ const Mapa = () => {
                     </button>
                 </Map>
             </section>
-
-            <section className='mb-8'>
-                <h1 className='"font-bold text-3xl text-center text-[#14A44D] my-4"'>Rutas Predeterminadas</h1>
-
-                <div className='mt-5 flex gap-5 flex-wrap items-center justify-center'>
-                    {rutas?.map((data) => (
-                        <Card key={data.id} data={data} />
-                    ))}
-                </div>
-            </section>
-        </main>
+        </>
     );
 };
 
