@@ -3,6 +3,7 @@ import { TurisContext } from "../../Context"
 import Card from "../../Components/CardShort"
 import imgHeader from "../../assets/img/cascada-parque.jpg"
 import useGetData from "../../hooks/useGetData"
+import LoaderCard from "../../Components/Loader/LoaderCard"
 
 function Hoteles() {
   const [data, setData] = useState([])
@@ -18,7 +19,7 @@ function Hoteles() {
     }
     setTimeout(() => {
       dataHotel()   
-    }, 1000);
+    }, 50);
   }, [establecimiento])
 
   return (
@@ -29,9 +30,9 @@ function Hoteles() {
       <article className="w-full flex items-center justify-center flex-row gap-5 flex-wrap mb-8">
         {/* /* El código `evento?.map(data => (<Card key={data.id} data={data} />))` se asigna sobre
               la matriz `evento` y representa un componente `Card` para cada elemento en la matriz. */}
-        {data?.map((data) => (
+        {establecimiento ? data?.map((data) => (
           <Card key={data.id_establecimiento} data={data} />
-        ))}
+        )) : <LoaderCard /> }
       </article>
     </section>
   );

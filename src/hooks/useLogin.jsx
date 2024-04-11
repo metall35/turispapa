@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import FormData from 'form-data';
 import axios from "axios";
 import Swal from "sweetalert2";
+/**
+ * La función useLogin maneja el envío de formularios para iniciar sesión, envía datos al backend y
+ * muestra mensajes de éxito o error en consecuencia.
+ * @returns La función `handleSubmit` se devuelve desde el enlace personalizado `useLogin`.
+ */
 const useLogin = () => {
     const { inputs, setInputs, setLoader, setTokenSession } = useContext(TurisContext);
     const formData = new FormData()
@@ -26,7 +31,7 @@ const useLogin = () => {
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/start`, formData);
             Swal.fire({
                 title: "¡Bien!",
-                text: "La información a sido guardada correctamente. Será redireccionado a la página de administrador.",
+                text: "Ha iniciado sesión correctamente.",
                 icon: "success",
                 showConfirmButton: false,
                 timer: 2500,
@@ -45,7 +50,7 @@ const useLogin = () => {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: `Parece que hubo un error: ${error.response.data.message} ${error.code}`,
+                text: `Parece que hubo un error: Por favor verifique sus datos.`,
                 confirmButtonColor: "#6fc390",
             });
             setLoader(false);
