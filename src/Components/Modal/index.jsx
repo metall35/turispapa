@@ -41,13 +41,13 @@ export default function ComponentModal() {
                                 {dataModal.nombre}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                <span className='font-semibold '>Contacto: </span>{dataModal.contacto}
+                                <span className='font-semibold '>{dataModal.contacto || dataModal.distancia} </span>{dataModal.contacto}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                <span className='font-semibold '>dirección: </span>{dataModal.direccion}
+                                <span className='font-semibold '>{dataModal.direccion || dataModal.duracion} </span>{dataModal.direccion}
                             </Typography>
                             {dataModal.descripcion ? <Typography variant="body2" color="text.secondary">
-                                <span className='font-semibold '>descripción: </span>{dataModal.descripcion}
+                                <span className='font-semibold '></span>{dataModal.descripcion}
                             </Typography> : <></>}
                         </div>
                     </section>
