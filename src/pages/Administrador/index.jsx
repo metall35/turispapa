@@ -1,6 +1,5 @@
 import { TbArticle } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import useGetData from "../../hooks/useGetData";
 import { cardEstablecimientos } from "../../Components/CardAdmin/MyCards"
 import { indexForms } from "../../Components/FormsAdmin/MyForms"
@@ -8,12 +7,13 @@ import TableAdmin from "../../Components/TableAdmin";
 import FormAdmin from "../../Components/FormsAdmin";
 import { useState, useEffect } from "react";
 import useGetAdmin from "../../hooks/useGetAdmin";
+import LoaderCard from "../../Components/Loader/LoaderCard";
 
 function Admin() {
     const [data, setData] = useState({})
     const [dataFilter, setDataFilter] = useState({})
     const admin1 = useGetAdmin()
-    const { establecimiento, asistencia } = useGetData(["establecimiento", "asistencia"]);
+    const { establecimiento, asistencia, eventos } = useGetData(["establecimiento", "asistencia", "eventos"]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -27,14 +27,19 @@ function Admin() {
                 ...item,
             }));
 
-            const newData = newObjEstablecimiento.concat(newObjAsistencia);
+            const newObjEventos = eventos.map((item, index) => ({
+                id: index, // Puedes agregar el id o cualquier otra propiedad que necesites
+                ...item,
+            }));
+
+            const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos);
 
             console.log(newData);
             setData(newData);
             setDataFilter(newData)
             console.log(data);
-        }, 1000);
-    }, [asistencia]);
+        }, 200);
+    }, [asistencia, establecimiento]);
 
     const handleFilter = (link) => {
         setDataFilter([])
@@ -44,8 +49,8 @@ function Admin() {
     }
     return (
         <>
-            {admin1 &&
-                <div className="flex h-screen bg-gray-100 w-full toTop">
+            {admin1 ?
+                <div className="flex bg-gray-100 w-full toTop mb-10">
                     <div className="w-64 bg-white p-4">
                         <h1 className="text-2xl font-bold mb-4">Panel de Administrador</h1>
                         <ul className="space-y-2">
@@ -63,7 +68,7 @@ function Admin() {
                     </div>
 
                     {/* Principal y Tarjetas */}
-                    <div className="flex-1 p-10">
+                    <div className="flex-1 px-10 py-2 mb-10 h-auto">
                         <h2 className="text-3xl font-semibold mb-4">Tablero</h2>
 
                         <div className="grid grid-cols-2  gap-6 mb-4">
@@ -98,7 +103,7 @@ function Admin() {
                         </div>
                     </div>
                 </div>
-            }
+                : <> <LoaderCard /> <LoaderCard /> </>}
         </>
     );
 }

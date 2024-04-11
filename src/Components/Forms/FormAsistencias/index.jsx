@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useSendData from "../../../hooks/useSendData";
+import useEditData from "../../../hooks/useEditData";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
@@ -9,8 +10,10 @@ import imgHeader from "../../../assets/img/romero.jpg"
 
 
 export default function FormAsistencia() {
+    const { pathname } = useLocation()
     const navigate = useNavigate()
     const { setImageNav } = useContext(TurisContext)
+    let handleSubmit
     setImageNav(imgHeader)
     const Inputs = [
         {
@@ -48,7 +51,11 @@ export default function FormAsistencia() {
             replace: true,
         });
     }
-    const handleSubmit = useSendData("asistencia", onSubmit)
+    if (pathname.includes("/administrador/editar")) {
+        handleSubmit = useEditData("asistencia", onSubmit)
+    }else{
+        handleSubmit = useSendData("asistencia", onSubmit)
+    }
     return (
         <Forms>
             <h1 className="text-center my-2 mb-8 text-xl font-semibold">Formulario de ingreso de asistencias</h1>

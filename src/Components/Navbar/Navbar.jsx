@@ -50,8 +50,8 @@ export const Navbar = () => {
   return (
     <>
       <header
-        className={`${pathname === "/administrador" || pathname.includes("/Form") ? "" : "h-[740px]"} bg-cover bg-no-repeat bg-fixed bg-center`}
-        style={pathname === "/administrador" || pathname.includes("/Form") ? {} : { backgroundImage: `url(${imageNav})` }}
+        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"} `}
+        style={pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? {} : { backgroundImage: `url(${imageNav})` }}
       >
         <nav
           className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg"}
@@ -64,7 +64,7 @@ export const Navbar = () => {
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
               </div>
             </div>
-            {pathname === "/administrador" || pathname.includes("/Form") ?
+            {pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ?
               <ul className="md:flex hidden uppercase items-center text-xs gap-4 mr-4">
                 <li>
                   <Link to="/administrador" className="py-7 px-3 inline-block">
@@ -73,7 +73,7 @@ export const Navbar = () => {
                 </li>
 
                 <li>
-                  <Link to="/" className="py-7 px-3 inline-block ">
+                  <Link to="/" reloadDocument className="py-7 px-3 inline-block ">
                     {setAdmin(false)}
                     Cerrar Sesión
                   </Link>

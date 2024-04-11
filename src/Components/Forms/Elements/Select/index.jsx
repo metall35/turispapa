@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TurisContext } from "../../../../Context/";
-const Select = ({ label, name, options, }) => {
+const Select = ({ label, name, options }) => {
     const { inputs, setInputs } = useContext(TurisContext)
-    const [value, setValue] = useState('initial')
+    const [value, setValue] = useState('')
+    useEffect(() =>{
+        setValue(inputs[name])
+    }, [inputs])
     const onChange = e => {
         setInputs({ ...inputs, [name]: e.target.value })
-        {setValue(e.target.value)}
+        setValue(e.target.value)
     }
     return (
         <label

@@ -1,6 +1,12 @@
 import { useState, useContext, useEffect } from "react";
 import { TurisContext } from "../Context";
 import axios from 'axios';
+/**
+ * La función `useGetData` obtiene datos de múltiples URL usando Axios en un componente de React y
+ * actualiza el estado en consecuencia.
+ * @returns La función `useGetData` devuelve el estado de `datos`, que es un objeto que contiene los
+ * datos obtenidos de las URL proporcionadas.
+ */
 
 function useGetData(urls) {
     const { setLoader } = useContext(TurisContext);
@@ -25,12 +31,13 @@ function useGetData(urls) {
         } catch (error) {
             console.error('Error fetching data:', error);
             setLoader(false);
+            setData(["no se han encontrado datos."])
         }
     };
 
     useEffect(() => {
         fetchData();
-    }, []); // Dependencia: urls y countRef.current
+    }, []); 
 
     return data;
 }

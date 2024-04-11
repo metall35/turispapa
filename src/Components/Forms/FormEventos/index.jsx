@@ -51,7 +51,7 @@ export default function FormLugaresNaturales() {
         },
     ]
     const onSubmit = () => {
-        navigate("/", {
+        navigate("/administrador", {
             replace: true
         })
     }

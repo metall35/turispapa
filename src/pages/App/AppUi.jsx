@@ -19,7 +19,6 @@ import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
 import { Navbar } from "../../Components/Navbar/Navbar";
-import { NavbarAdmin } from "../../Components/NavbarAdmin/NavbarAdmin";
 import Loader from '../../Components/Loader'
 import FormEventos from '../../Components/Forms/FormEventos'
 import FormAsistencias from '../../Components/Forms/FormAsistencias'
@@ -27,10 +26,7 @@ import FormEstablecimieno from '../../Components/Forms/FormEstablecimiento'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
 import Login from "../Login";
 import ComponentModal from "../../Components/Modal";
-import ListHoteles from '../../Components/Lists/ListHoteles';
-import ListLugares from '../../Components/Lists/ListLugares';
-//import ListRestaurantes from '../../Components/List/ListRestaurantes';
-import ListRutas from '../../Components/Lists/ListRutas';
+import Edit from "../../Components/Forms/Edit";
 
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
@@ -56,7 +52,7 @@ function AppRoutes() {
         { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
-        { path: '/administrador/editar/:id', element: <Admin /> },
+        { path: '/administrador/editar/:id', element: <Edit /> },
         { path: '/*', element: <NotFound /> },
 
     ])
@@ -78,7 +74,7 @@ function AppUi() {
                     <AppRoutes />
                     {openModal && <ComponentModal />}
                 </Layout>
-                <Footer  />
+                {admin ? <></> : <Footer />}
             </BrowserRouter>
         </>
     )

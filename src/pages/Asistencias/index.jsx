@@ -3,6 +3,7 @@ import { TurisContext } from "../../Context";
 import imgHeader from "../../assets/img/ImgAsistencias.jpg"
 import Card from "../../Components/CardShort"
 import useGetData from "../../hooks/useGetData"
+import LoaderCard from "../../Components/Loader/LoaderCard";
 
 function Asistencias() {
   const { setImageNav } = useContext(TurisContext)
@@ -15,9 +16,9 @@ function Asistencias() {
         Asistencias
       </h1>
       <article className="w-full flex items-center justify-center flex-row gap-5 flex-wrap mb-8">
-        {asistencia?.map((data) => (
+        {asistencia ? asistencia?.map((data) => (
           <Card key={data.id_asistencias} data={data} />
-        ))}
+        )) : <LoaderCard />}
       </article>
     </section>
   );

@@ -4,6 +4,7 @@ import useGetData from "../../hooks/useGetData"
 import { useContext, useState } from "react"
 import { TurisContext } from "../../Context"
 import { useEffect } from "react"
+import LoaderCard from "../../Components/Loader/LoaderCard"
 
 function Restaurantes() {
   const [data, setData] = useState([])
@@ -19,7 +20,7 @@ function Restaurantes() {
     }
     setTimeout(() => {
       dataRestaurante()   
-    }, 1000);
+    }, 50);
   }, [establecimiento])
 
   return (
@@ -31,9 +32,9 @@ function Restaurantes() {
 
         {/* /* El código `evento?.map(data => (<Card key={data.id} data={data} />))` se asigna sobre
               la matriz `evento` y representa un componente `Card` para cada elemento en la matriz. */}
-        {data?.map((data) => (
+        {establecimiento ? data?.map((data) => (
           <Card key={data.id_establecimiento} data={data} />
-        ))}
+        )) : <LoaderCard />}
       </article>
     </section>
   );

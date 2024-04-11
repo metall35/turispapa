@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { TurisContext } from "../../../Context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useSendData from "../../../hooks/useSendData";
+import useEditData from "../../../hooks/useEditData";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
@@ -10,7 +11,9 @@ import TextArea from "../Elements/TextArea";
 import imgHeader from "../../../assets/img/romero.jpg"
 
 export default function FormEstablecimiento() {
+    const { pathname } = useLocation()
     const { setImageNav } = useContext(TurisContext)
+    let handleSubmit
     setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
@@ -60,11 +63,15 @@ export default function FormEstablecimiento() {
 
     const onSubmit = () => {
         //envio de datos
-        navigate("/", {
+        navigate("/administrador", {
             replace: true,
         });
     }
-    const handleSubmit = useSendData("establecimiento", onSubmit)
+    if (pathname.includes("/administrador/editar")) {
+        handleSubmit = useEditData("establecimiento", onSubmit)
+    } else {
+        handleSubmit = useSendData("establecimiento", onSubmit)
+    }
 
     return (
         <Forms>
@@ -93,10 +100,6 @@ export default function FormEstablecimiento() {
                         },
                     ]}
                 />
-                {inputs.establecimiento === undefined ? <></> : inputs.establecimiento === 'restaurante' ?
-                    <Input key={'restaurante'} type={'file'} name={'Carta'} placeholder={'Ingrese la carta del restaurante'} required={false} /> :
-                    <Input key={'hotel'} type={'file'} name={'Habitación'} placeholder={'Ingrese la mejor habitación'} required={false} />
-                }
                 <TextArea
                     name={'Descripción'}
                     placeholder={'Ingrese la descripción del lugar'}
