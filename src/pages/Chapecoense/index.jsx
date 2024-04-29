@@ -9,25 +9,21 @@ import p5 from '../../assets/img/ala.jpg'
 import p6 from '../../assets/img/avion.jpg'
 import p9 from '../../assets/img/vista_avion.jpg'
 function Chapecoense() {
-    const {setImageNav} = useContext(TurisContext)
+    const { setImageNav } = useContext(TurisContext)
     setImageNav(imgHeader)
     return (
         <section className="w-[90%]">
             <InicioChapeco />
             <article >
-                <h2 className="font-semibold text-lg text-center mt-4 py-4 text-[#14A44D]">Imagenes chapecoense</h2>
+                <h2 className="font-semibold text-2xl text-center mt-4 py-4 text-[#14A44D]">Imagenes chapecoense</h2>
                 <Slider
                     width={'100%'}
-                    data={[p1,p5,p6,p9]}
+                    data={[p1, p5, p6, p9]}
                 />
             </article>
             <section className="my-8 flex max-md:flex-col items-center gap-4">
-                <figure className='max-h-80 max-w-xs rounded overflow-hidden'>
-                    <img src={cruz} alt="Cruz" className=" shadow-lg " />
-                </figure>
-
                 <div>
-                    <h2 className="text-2xl font-light mb-2 text-[#14A44D]">
+                    <h2 className="text-2xl font-bold mb-2 text-[#14A44D]">
                         El Acontecimiento
                     </h2>
                     <p>
@@ -61,6 +57,10 @@ function Chapecoense() {
                         erigieron monumentos y placas en memoria de las víctimas.
                     </p>
                 </div>
+                <figure className='max-h-80 max-w-xs rounded overflow-hidden'>
+                    <img src={cruz} alt="Cruz" className=" shadow-lg " />
+                </figure>
+
             </section>
         </section>
     );

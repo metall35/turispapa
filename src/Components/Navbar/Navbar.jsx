@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import { Link, useLocation } from "react-router-dom";
+import Logo from "../../assets/img/logo (2).png";
 import { NavLinks } from "./NavLinks";
 import { TurisContext } from "../../Context";
 
 export const Navbar = () => {
-  const { imageNav } = useContext(TurisContext)
+  const { pathname } = useLocation()
+  const { imageNav, setAdmin } = useContext(TurisContext)
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('bg-[#eaeaf16e]');
   const [nav, setNav] = useState('h-[80px] ');
@@ -16,19 +17,22 @@ export const Navbar = () => {
    */
 
   const useScrolling = () => {
-    if (window.scrollY > 10) {
-      if (!scrollRef.current) {
-        setScroll('bg-[#ffff] transition delay-300 duration-300 ease-in h-[60px] ');
-        setNav('h-[60px] ');
-        scrollRef.current = true;
-
+    if (pathname !== "/administrador") {
+      if (window.scrollY > 10) {
+        if (!scrollRef.current) {
+          setScroll('bg-[#ffff] transition delay-300 duration-300 ease-in h-[60px] ');
+          setNav('h-[60px] ');
+          scrollRef.current = true;
+        }
+      } else {
+        if (scrollRef.current) {
+          setScroll('transition delay-300 duration-300 ease-in');
+          setNav('h-[80px]');
+          scrollRef.current = false;
+        }
       }
     } else {
-      if (scrollRef.current) {
-        setScroll('bg-[#eaeaf16e] transition delay-300 duration-300 ease-in h-[80px]');
-        setNav('h-[80px] ');
-        scrollRef.current = false;
-      }
+      setScroll("bg-[#ffff]")
     }
   }
 
@@ -48,43 +52,60 @@ export const Navbar = () => {
   return (
     <>
       <header
-        className="h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"
-        style={{ backgroundImage: `url(${imageNav})` }}
+        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"} `}
+        style={pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? {} : { backgroundImage: `url(${imageNav})` }}
       >
         <nav
           className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg"}
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
-              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] " />
+              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[210px] ml-2" />
               <div className="flex items-center text-[36px] md:hidden" onClick={() => setOpen(!open)}
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
               </div>
             </div>
-            <ul className="md:flex hidden uppercase items-center text-xs gap-4 mr-4">
-              <li>
-                <Link to="/" className="py-7 px-3 inline-block">
-                  Inicio
-                </Link>
-              </li>
-              <NavLinks className={scroll} />
-              {/* <li>
+            {pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ?
+              <ul className="md:flex hidden uppercase items-center text-xs gap-4 mr-4">
+                <li>
+                  <Link to="/administrador" className="py-7 px-3 inline-block">
+                    Administrador
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/" reloadDocument className="py-7 px-3 inline-block ">
+                    {setAdmin(false)}
+                    Cerrar Sesión
+                  </Link>
+                </li>
+              </ul>
+              :
+              <ul className="md:flex hidden uppercase items-center text-xs gap-4 mr-4">
+                <li>
+                  <Link to="/" className="py-7 px-3 inline-block">
+                    Inicio
+                  </Link>
+                </li>
+                <NavLinks className={scroll} />
+                {/* <li>
                 <Link to="/entretenimiento" className="py-7 px-3 inline-block">
                   Entretenimiento
-                </Link>
+                  </Link>
               </li> */}
-              <li>
-                <Link to="/rutas" className="py-7 px-3 inline-block ">
-                  Rutas
-                </Link>
-              </li>
-              <li>
-                <Link to="/asistencias" className="py-7 px-3 inline-block ">
-                  Asistencia
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link to="/rutas" className="py-7 px-3 inline-block ">
+                    Rutas
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/asistencias" className="py-7 px-3 inline-block ">
+                    Asistencia
+                  </Link>
+                </li>
+              </ul>
+            }
             {/* Mobile nav */}
             <ul
               className={`

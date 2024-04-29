@@ -12,7 +12,7 @@ export default function TablaContenido(data) {
                     className="object-cover h-full w-full min-h-[568px]"
                 />
                 <div className="flex flex-col justify-center p-10 md:w-[50%] w-full absolute bg-black/80 left-0 top-0 h-full text-white">
-                    <h2 className="mb-4 text-2xl">
+                    <h2 className="mb-4 text-3xl font-semibold">
                         {data.data.titulo}
                     </h2>
                     <p className=" text-base font-light">

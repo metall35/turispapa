@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef, useContext} from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import imgHeader from '../../assets/imgHeader.svg';
+import { TurisContext } from "../../Context";
 
 export const NavbarAdmin = () => {
+  const {setAdmin} = useContext(TurisContext)
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('bg-[#eaeaf16e]');
   const [nav, setNav] = useState('h-[80px] ');
@@ -46,8 +48,7 @@ representa un encabezado y una barra de navegación. */
   return (
     <>
       <header
-        className="h-[500px] bg-cover bg-no-repeat bg-fixed bg-center"
-        style={{ backgroundImage: `url(${imgHeader})` }}
+        className="bg-cover bg-no-repeat bg-fixed bg-center"
       >
         <nav
           className={scroll + "fixed w-full text-gray-500 z-[100] shadow-lg" }
@@ -68,7 +69,8 @@ representa un encabezado y una barra de navegación. */
               </li>
 
               <li>
-                <Link to="/asistencias" className="py-7 px-3 inline-block ">
+                <Link to="/" className="py-7 px-3 inline-block ">
+                  {setAdmin(false)}
                   Cerrar Sesión
                 </Link>
               </li>  

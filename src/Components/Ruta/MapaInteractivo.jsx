@@ -3,8 +3,11 @@ import { HiOutlineLocationMarker } from 'react-icons/hi'
 import React, { useState, } from 'react'
 import { randomColor } from 'randomcolor'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import Card from "../../Components/CardShort"
+import { rutas } from "./dataRuta"
 // import { process } from 'process';
 import axios from 'axios';
+import { main } from '@popperjs/core'
 let i = 0
 const Mapa = () => {
     const [origin, setOrigin] = useState(null);
@@ -75,92 +78,103 @@ const Mapa = () => {
         i = 0
     }
     return (
-        <section className=' mb-8 w-full border border-slate-300/50 shadow-lg rounded-lg overflow-hidden p-2'>
-            <Map
-                style={{ width: '100%', height: 560 }}
-                mapStyle='mapbox://styles/mapbox/streets-v12'
-                mapboxAccessToken='pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'
-                onClick={handleMapClick}
-                initialViewState={{
-                    longitude: -75.3614029,
-                    latitude: 5.9736872,
-                    zoom: 18,
-                }}
-            >
-                {/* Marcadores para origen */}
-                {origin && (
-                    <Marker
-                        latitude={origin.latitude}
-                        longitude={origin.longitude}
-                        offsetLeft={-20}
-                        offsetTop={-10}
-                    >
-                        <HiOutlineLocationMarker className='fill-red-600 w-6 h-6 ' />
-                    </Marker>
-                )}
-
-                {/* Marcadores para destinos */}
-                {destinations.map((destination, index) => (
-                    <Marker
-                        key={index}
-                        latitude={destination.latitude}
-                        longitude={destination.longitude}
-                        offsetLeft={-20}
-                        offsetTop={-10}
-                    >
-                        <HiOutlineLocationMarker
-                            className={`w-6 h-6`}
-                            style={{ stroke: randomColor({ luminosity: 'dark' }) }}
-                        />
-                    </Marker>
-                ))}
-
-                {/* Ruta */}
-                {routeData && (
-                    <Source type='geojson' data={routeData.routes[0].geometry}>
-                        <Layer
-                            type='line'
-                            paint={{
-                                'line-color': '#14A44D',
-                                'line-width': 4,
-                            }}
-                        />
-                    </Source>
-                )}
-
-                {/* Control de navegación */}
-                <div className='absolute top-2 right-2'>
-                    <NavigationControl />
+        <>
+            <section className='mb-8'>
+                <h1 className='"font-bold text-3xl text-center text-[#14A44D] my-4"'>Rutas Predeterminadas</h1>
+                <div className='mt-5 flex gap-5 flex-wrap items-center justify-center'>
+                    {rutas?.map((data) => (
+                        <Card key={data.id} data={data} />
+                    ))}
                 </div>
-
-                {/* Duración y distancia */}
-                {duration && distance && (
-                    <div className='absolute top-2 left-2 bg-white p-2 rounded-lg shadow-md'>
-                        <p>Duración: {duration} minutos</p>
-                        <p>Distancia: {distance} km</p>
-                    </div>
-                )}
-
-                {/* Pasos */}
-                {steps.length > 0 && (
-                    <div className='absolute bottom-8 left-2 bg-white p-2 rounded-lg shadow-md'>
-                        <h2>Pasos de la ruta:</h2>
-                        <ol>
-                            {steps.map((step, index) => (
-                                <li key={index}>{step.maneuver.instruction}</li>
-                            ))}
-                        </ol>
-                    </div>
-                )}
-                {/* button de reset */}
-                <button
-                    className='hover:bg-sky-600/60 bg-sky-600/50 active:bg-sky-600/75 py-2 px-4 rounded-lg text-center w-24 text-neutral-100 font-bold  absolute bottom-6 right-2'
-                    onClick={() => reset()}
+            </section>
+            <h2 className='"font-bold text-3xl text-center text-[#14A44D] mb-4"'>¡Crea tu propia ruta!</h2>
+            <section className=' mb-8 w-full border border-slate-300/50 shadow-lg rounded-lg overflow-hidden p-2'>
+                <Map
+                    style={{ width: '100%', height: 560 }}
+                    mapStyle='mapbox://styles/mapbox/streets-v12'
+                    mapboxAccessToken='pk.eyJ1IjoibWV0NGxsMSIsImEiOiJjbG4xMDZ5ZGkwbnQzMmtteTNwbGFtd2lnIn0.Id4b3HC91RVs0wZVXOgPZA'
+                    onClick={handleMapClick}
+                    initialViewState={{
+                        longitude: -75.3614029,
+                        latitude: 5.9736872,
+                        zoom: 18,
+                    }}
                 >
-                    Reiniciar
-                </button>
-            </Map>
-        </section>
+                    {/* Marcadores para origen */}
+                    {origin && (
+                        <Marker
+                            latitude={origin.latitude}
+                            longitude={origin.longitude}
+                            offsetLeft={-20}
+                            offsetTop={-10}
+                        >
+                            <HiOutlineLocationMarker className='fill-red-600 w-6 h-6 ' />
+                        </Marker>
+                    )}
+
+                    {/* Marcadores para destinos */}
+                    {destinations.map((destination, index) => (
+                        <Marker
+                            key={index}
+                            latitude={destination.latitude}
+                            longitude={destination.longitude}
+                            offsetLeft={-20}
+                            offsetTop={-10}
+                        >
+                            <HiOutlineLocationMarker
+                                className={`w-6 h-6`}
+                                style={{ stroke: randomColor({ luminosity: 'dark' }) }}
+                            />
+                        </Marker>
+                    ))}
+
+                    {/* Ruta */}
+                    {routeData && (
+                        <Source type='geojson' data={routeData.routes[0].geometry}>
+                            <Layer
+                                type='line'
+                                paint={{
+                                    'line-color': '#14A44D',
+                                    'line-width': 4,
+                                }}
+                            />
+                        </Source>
+                    )}
+
+                    {/* Control de navegación */}
+                    <div className='absolute top-2 right-2'>
+                        <NavigationControl />
+                    </div>
+
+                    {/* Duración y distancia */}
+                    {duration && distance && (
+                        <div className='absolute top-2 left-2 bg-white p-2 rounded-lg shadow-md'>
+                            <p>Duración: {duration} minutos</p>
+                            <p>Distancia: {distance} km</p>
+                        </div>
+                    )}
+
+                    {/* Pasos */}
+                    {steps.length > 0 && (
+                        <div className='absolute bottom-8 left-2 bg-white p-2 rounded-lg shadow-md'>
+                            <h2>Pasos de la ruta:</h2>
+                            <ol>
+                                {steps.map((step, index) => (
+                                    <li key={index}>{step.maneuver.instruction}</li>
+                                ))}
+                            </ol>
+                        </div>
+                    )}
+                    {/* button de reset */}
+                    <button
+                        className='hover:bg-sky-600/60 bg-sky-600/50 active:bg-sky-600/75 py-2 px-4 rounded-lg text-center w-24 text-neutral-100 font-bold  absolute bottom-6 right-2'
+                        onClick={() => reset()}
+                    >
+                        Reiniciar
+                    </button>
+                </Map>
+            </section>
+        </>
     );
 };
 

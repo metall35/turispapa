@@ -1,4 +1,4 @@
-import { useRoutes, BrowserRouter } from "react-router-dom";
+import { useRoutes, BrowserRouter, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { TurisContext } from "../../Context";
 import UseScrollToTop from "../../hooks/useScrollToTop";
@@ -19,15 +19,14 @@ import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
 import { Navbar } from "../../Components/Navbar/Navbar";
-import { NavbarAdmin } from "../../Components/NavbarAdmin/NavbarAdmin";
 import Loader from '../../Components/Loader'
 import FormEventos from '../../Components/Forms/FormEventos'
 import FormAsistencias from '../../Components/Forms/FormAsistencias'
 import FormEstablecimieno from '../../Components/Forms/FormEstablecimiento'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
-import { useState } from "react";
-
 import Login from "../Login";
+import ComponentModal from "../../Components/Modal";
+import Edit from "../../Components/Forms/Edit";
 
 /* La función `AppRoutes` es responsable de definir las rutas de la aplicación usando el gancho
 `useRoutes` de la biblioteca `react-router-dom`. Crea una matriz de objetos de ruta, donde cada
@@ -53,6 +52,7 @@ function AppRoutes() {
         { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
+        { path: '/administrador/editar/:id', element: <Edit /> },
         { path: '/*', element: <NotFound /> },
 
     ])
@@ -62,18 +62,19 @@ function AppRoutes() {
 Devuelve código JSX que representa la interfaz de usuario de la aplicación. */
 
 function AppUi() {
-    const {loader} = useContext(TurisContext)
-    const [isAdmin] = useState(false);
+    const { loader, admin, openModal } = useContext(TurisContext)
+
     return (
         <>
             <BrowserRouter>
-                {isAdmin ? <NavbarAdmin /> : <Navbar />}
+                <Navbar />
                 <UseScrollToTop />
                 <Layout>
                     {loader && <Loader />}
                     <AppRoutes />
+                    {openModal && <ComponentModal />}
                 </Layout>
-                <Footer />
+                {admin ? <></> : <Footer />}
             </BrowserRouter>
         </>
     )

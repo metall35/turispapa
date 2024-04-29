@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TurisContext } from "../../../../Context/";
 
 const TextArea = ({ name, placeholder, required }) => {
@@ -6,10 +6,15 @@ const TextArea = ({ name, placeholder, required }) => {
     const { inputs, setInputs } = useContext(TurisContext)
     const [textoLimpio, setTextoLimpio] = useState("")
     const Name = name.toLowerCase()
+    const [value, setValue] = useState("")
     const sinTildes = Name.replace(/[áéíóú]/g, "o");
-    
+    useEffect(() => {
+        setValue(inputs[sinTildes])
+    }, [inputs])
+
     const onChange = e => {
         // setTextoLimpio(e.target.value.replaceAll(/<[^>]*>/g, ""))
+        setValue(e.target.value)
         setInputs({ ...inputs, [sinTildes]: e.target.value })
     }
     return (
@@ -27,6 +32,7 @@ const TextArea = ({ name, placeholder, required }) => {
                 border border-neutral300/75 focus:border-[#14a44e76] focus:ring-[#14a44e76]
                 focus:ring-1 focus:outline-none rounded-lg w-full resize-y"
                 onChange={onChange}
+                value={value}
             />
         </label>
     )

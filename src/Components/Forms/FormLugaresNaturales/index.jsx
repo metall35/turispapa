@@ -1,30 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
 import TextArea from "../Elements/TextArea";
+import { TurisContext } from "../../../Context";
+import imgHeader from "../../../assets/img/romero.jpg"
+import Select from "../Elements/Select";
+import useSendData from "../../../hooks/useSendData";
 
 export default function FormLugaresNaturales() {
-    const { inputs, setInputs } = useContext(TurisContext)
+    const { setImageNav } = useContext(TurisContext)
+    setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
         {
             id: 1,
-            type: 'number',
-            name: 'Distancia',
-            placeholder: 'Ingrese la distancia en KM',
+            type: 'text',
+            name: 'Titulo',
+            placeholder: 'Ingrese el título',
             required: true
         },
         {
             id: 2,
-            type: 'text',
-            name: 'Nombre',
-            placeholder: 'Ingrese el nombre del lugar',
-            required: true
-        },
-        {
-            id: 3,
             type: 'file',
             name: 'Imagen',
             placeholder: '',
@@ -34,11 +32,11 @@ export default function FormLugaresNaturales() {
 
     const onSubmit = () => {
         //envio de datos
-        navigate("/", {
+        navigate("/administrador", {
             replace: true,
         });
     }
-    const handleSubmit = useSendData("lugares-naturales", onSubmit)
+    const handleSubmit = useSendData("index", onSubmit)
 
 
     return (
@@ -54,6 +52,32 @@ export default function FormLugaresNaturales() {
                         required={input.required}
                     />
                 ))}
+                <Select
+                    label="Categoría"
+                    name="categoria"
+                    options={[
+                        {
+                            value: "historico",
+                            label: "Historíco",
+                        },
+                        {
+                            value: "aventura",
+                            label: "Aventura",
+                        },
+                        {
+                            value: "naturaleza",
+                            label: "Naturaleza",
+                        },
+                        {
+                            value: "gastronomia",
+                            label: "Gastronomia",
+                        },
+                        {
+                            value: "entretenimiento",
+                            label: "Entretenimiento",
+                        },
+                    ]}
+                />
                 <TextArea
                     name={'Descripcion'}
                     placeholder={'Ingrese la descripción del lugar'}
