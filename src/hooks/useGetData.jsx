@@ -29,15 +29,20 @@ function useGetData(urls) {
             setLoader(false);
             console.log(updatedData);
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching data:', error, data);
             setLoader(false);
-            setData(["no se han encontrado datos."])
+        } finally {
+            if(data == {}){
+                setData(urls.map(url => { return { [url]: [] } }))
+            }
+            console.log(data);
+            return data
         }
     };
 
     useEffect(() => {
         fetchData();
-    }, []); 
+    }, []);
 
     return data;
 }

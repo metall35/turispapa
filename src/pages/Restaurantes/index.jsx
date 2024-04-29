@@ -19,7 +19,7 @@ function Restaurantes() {
         }))
     }
     setTimeout(() => {
-      dataRestaurante()   
+      dataRestaurante()
     }, 50);
   }, [establecimiento])
 
@@ -32,9 +32,13 @@ function Restaurantes() {
 
         {/* /* El código `evento?.map(data => (<Card key={data.id} data={data} />))` se asigna sobre
               la matriz `evento` y representa un componente `Card` para cada elemento en la matriz. */}
-        {establecimiento ? data?.map((data) => (
+        {establecimiento ? establecimiento.length > 0 ? data?.map((data) => (
           <Card key={data.id_establecimiento} data={data} />
-        )) : <LoaderCard />}
+        )) :
+          <p className="font-bold text-xl  text-center mt-6">
+            ¡No hay Restaurantes disponibles en este momento!
+          </p> :
+          <LoaderCard />}
       </article>
     </section>
   );

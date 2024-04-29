@@ -22,7 +22,7 @@ const useSendData = (url, onSubmit) => {
         for (const [key, value] of input) {
             if (key !== 'id_estado' && key !== 'redes_id' && key !== 'id_usuario' && key !== 'id' 
             && key !== 'id_establecimiento' && key !== 'detalle' && key !== 'Created_at' && key !== 'Updated_at'
-            && key !== 'deleted_at' && key !== 'id_asistencias' && key !== 'id_eventos' && key !== 'id_lugar') {
+            && key !== 'deleted_at' && key !== 'id_asistencias' && key !== 'id_eventos' && key !== 'id_lugar' && key !== 'imagen    ') {
                 // console.log(`la key es: ${key} y su valor es ${value}`);
                 formData.append(key, value);
             }

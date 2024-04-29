@@ -16,9 +16,13 @@ function Asistencias() {
         Asistencias
       </h1>
       <article className="w-full flex items-center justify-center flex-row gap-5 flex-wrap mb-8">
-        {asistencia ? asistencia?.map((data) => (
-          <Card key={data.id_asistencias} data={data} />
-        )) : <LoaderCard />}
+        {asistencia ? asistencia.length > 0 ? asistencia?.map((data) => (
+          <Card key={data.id_establecimiento} data={data} />
+        )) :
+          <p className="font-bold text-xl  text-center mt-6">
+            ¡No hay Asistencias disponibles en este momento!
+          </p> :
+          <LoaderCard />}
       </article>
     </section>
   );

@@ -2,6 +2,9 @@ import { FaHotel } from "react-icons/fa6";
 import { BiRestaurant } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 import { FaPlaneArrival } from "react-icons/fa";
+import { VscSync } from "react-icons/vsc";
+import { MdEvent } from "react-icons/md";
+import { RiCustomerService2Line } from "react-icons/ri";
 export const cardEstablecimientos = [
     {
         id: 1,
@@ -19,15 +22,30 @@ export const cardEstablecimientos = [
     },
     {
         id: 3,
-        icono: FaPlaneArrival,
+        icono: RiCustomerService2Line,
         nombre: "Asistencias",
+        color: "text-lime-700",
         link: "asistencia"
     },
     {
         id: 4,
-        icono: FiMapPin,
+        icono: MdEvent,
+        nombre: "Eventos",
+        color: "text-orange-700",
+        link: "evento"
+    },
+    {
+        id: 5,
+        icono: VscSync ,
         nombre: "Reiniciar",
         color: "text-emerald-300",
+        link: ""
+    },
+    {
+        id: 7,
+        icono: VscSync,
+        nombre: "",
+        color: "text-white",
         link: ""
     }
 ]

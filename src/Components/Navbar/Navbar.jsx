@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/img/logo (2).png";
 import { NavLinks } from "./NavLinks";
 import { TurisContext } from "../../Context";
 
@@ -26,11 +26,13 @@ export const Navbar = () => {
         }
       } else {
         if (scrollRef.current) {
-          setScroll('bg-[#eaeaf16e] transition delay-300 duration-300 ease-in h-[80px]');
-          setNav('h-[80px] ');
+          setScroll('transition delay-300 duration-300 ease-in');
+          setNav('h-[80px]');
           scrollRef.current = false;
         }
       }
+    } else {
+      setScroll("bg-[#ffff]")
     }
   }
 
@@ -58,7 +60,7 @@ export const Navbar = () => {
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
-              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] " />
+              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[210px] ml-2" />
               <div className="flex items-center text-[36px] md:hidden" onClick={() => setOpen(!open)}
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
