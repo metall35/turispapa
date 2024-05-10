@@ -20,28 +20,22 @@ const useSendData = (url, onSubmit) => {
     const convertData = () => {
         const input = Object.entries(inputs);
         for (const [key, value] of input) {
-            if (key !== 'id_estado' && key !== 'redes_id' && key !== 'id_usuario' && key !== 'id' 
-            && key !== 'id_establecimiento' && key !== 'detalle' && key !== 'Created_at' && key !== 'Updated_at'
-            && key !== 'deleted_at' && key !== 'id_asistencias' && key !== 'id_eventos' && key !== 'id_lugar' && key !== 'imagen    ') {
-                // console.log(`la key es: ${key} y su valor es ${value}`);
+            if (key !== 'id_estado' && key !== 'redes_id' && key !== 'id_usuario' && key !== 'id' && key !== 'detalle' && key !== 'Created_at' && key !== 'Updated_at'
+                && key !== 'deleted_at' && key !== 'id_asistencias' && key !== 'id_eventos' && key !== 'id_lugar') {
                 formData.append(key, value);
             }
         }
-
     };
     /**
      * La función `aceptSubmit` es una función asincrónica que maneja el envío de formularios enviando
      * datos a una API backend y mostrando mensajes de éxito o error usando SweetAlert.
      */
+    convertData()
     const aceptSubmit = async () => {
         try {
-            convertData()
+            console.log(formData);
 
-            const response = await axios.patch(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}/${inputs.id_establecimiento || inputs.id_asistencias || inputs.id_eventos || inputs.id_lugar}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}/${inputs.id_establecimiento || inputs.id_asistencias || inputs.id_eventos || inputs.id_lugar || inputs.id_index}`, formData);
             Swal.fire({
                 title: "¡Bien!",
                 text: "La información a sido guardada correctamente.",

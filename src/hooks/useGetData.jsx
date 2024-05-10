@@ -27,7 +27,7 @@ function useGetData(urls) {
 
             setData(updatedData);
             setLoader(false);
-            console.log(updatedData);
+            // console.log(updatedData);
         } catch (error) {
             console.error('Error fetching data:', error, data);
             setLoader(false);

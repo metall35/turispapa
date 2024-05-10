@@ -43,6 +43,7 @@ const useLogin = () => {
                 // Redirect to home page
                 navigate("/administrador", {
                     replace: true,
+                    preventScrollReset: true
                 });
             });
         } catch (error) {

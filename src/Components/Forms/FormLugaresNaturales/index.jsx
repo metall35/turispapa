@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Forms from "../../Layout/Forms";
 import Button from "../Elements/Buttons";
 import Input from "../Elements/Inputs";
@@ -8,9 +8,12 @@ import { TurisContext } from "../../../Context";
 import imgHeader from "../../../assets/img/romero.jpg"
 import Select from "../Elements/Select";
 import useSendData from "../../../hooks/useSendData";
+import useEditData from "../../../hooks/useEditData";
 
 export default function FormLugaresNaturales() {
     const { setImageNav } = useContext(TurisContext)
+    const { pathname } = useLocation()
+    let handleSubmit
     setImageNav(imgHeader)
     const navigate = useNavigate()
     const Inputs = [
@@ -36,7 +39,11 @@ export default function FormLugaresNaturales() {
             replace: true,
         });
     }
-    const handleSubmit = useSendData("index", onSubmit)
+    if (pathname.includes("/administrador/editar")) {
+        handleSubmit = useEditData("updateindex", onSubmit)
+    } else {
+        handleSubmit = useSendData("index", onSubmit)
+    }
 
 
     return (

@@ -1,28 +1,30 @@
-import rutSeda from '../../assets/img/rutSeda.png'
+import rutUnionMeso from '../../assets/img/RUTAUN-MP.jpg'
+import rutUnionSanje from '../../assets/img/RUTAUN-SJ.jpg'
+import rutCircuito from '../../assets/img/RUTACU.jpg'
 
 export const rutas = [
     {
         id: 1,
-        imagen: rutSeda,
-        nombre: "Ruta de la Seda",
-        distancia: "3 Kilometros",
-        duracion: "2 Horas",
-        descripcion: "La Ruta de la Seda fue un conjunto de redes comerciales que comunicaban Asia y Europa."
+        imagen: rutUnionMeso,
+        nombre: "La Unión - Mesopotamia",
+        distancia: "16,11 Kilometros",
+        duracion: "6 Horas, 14 minutos",
+        descripcion: "Hermosa ruta por el oriente Antioqueño saliendo desde el municipio de la Unión hasta el Corregimiento de Mesopotamia del mismo municipio."
     },
     {
         id: 2,
-        imagen: rutSeda,
-        nombre: "Ruta de la Sal",
-        distancia: "6 Kilometros",
-        duracion: "3 Horas",
+        imagen: rutUnionSanje,
+        nombre: "La Unión - San Jeronimo",
+        distancia: "20,3 Kilometros",
+        duracion: "5 Horas, 44 minutos",
         descripcion: "La Ruta de la Sal fue un conjunto de redes comerciales que comunicaban la Guajira y Bogotá."
     },
     {
         id: 3,
-        imagen: rutSeda,
-        nombre: "Ruta de la Papa",
-        distancia: "15 Kilometros",
-        duracion: "5 Horas",
-        descripcion: "La Ruta de la Papa fue un conjunto de redes comerciales que comunicaban Boyaca y Medellín."
+        imagen: rutCircuito,
+        nombre: "Circuito por La Unión",
+        distancia: "11,75 Kilometros",
+        duracion: "4 Horas, 10 minutos",
+        descripcion: "Circuito por carreteras veredales en La Unión, veredas Vallejuelito Peñas y Pantalio."
     }
 ]

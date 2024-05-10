@@ -52,7 +52,7 @@ export default function FormAsistencia() {
         });
     }
     if (pathname.includes("/administrador/editar")) {
-        handleSubmit = useEditData("asistencia", onSubmit)
+        handleSubmit = useEditData("updateasistencias", onSubmit)
     }else{
         handleSubmit = useSendData("asistencia", onSubmit)
     }

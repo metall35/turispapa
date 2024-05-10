@@ -4,11 +4,11 @@ import Experiencias from "../../Components/home/Experiencias"
 import MapaIndex from "../../Components/home/MapaIndex"
 import Slider from "../../Components/Slider"
 import imgHeader from '../../assets/imgHeader.svg';
-import p2 from '../../assets/img/entretenimiento.jpg';
-import p3 from '../../assets/img/naturaleza.jpg';
-import p4 from '../../assets/img/gastronomia.jpg'
-import p7 from '../../assets/img/cruz.jpg'
-import p8 from '../../assets/img/papa.jpg'
+import p2 from '../../assets/img/buggy.jpg';
+import p3 from '../../assets/img/lactesano.jpg';
+import p4 from '../../assets/img/pajariando.jpeg'
+import p7 from '../../assets/img/vallestradas.jpg'
+import p8 from '../../assets/img/cuatriturs.jpg'
 /**
  * La función Inicio devuelve un elemento JSX que incluye un encabezado, un componente llamado
  * Experiencias, un componente llamado Slider y un componente llamado MapaIndex.
@@ -18,7 +18,7 @@ function Home() {
     setImageNav(imgHeader)
     return (
         <>
-            <h1 className="mb-6 text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-green-550 to-yellow-500">
+            <h1 className="mb-6 text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-green-550 to-yellow-500 text-center">
             Vive La Unión: Más que un destino, una experiencia
             </h1>
 

@@ -14,7 +14,7 @@ export default function Slider({ width, data }) {
 
   return (
     <>
-      <section className={`${width} h-[520px]`}>
+      <section className={`${width} h-[820px]`}>
         {/* /* El código está creando un componente contenedor Swiper utilizando el elemento `swiper-container`.
 Este contenedor se encarga de mostrar una presentación de diapositivas de imágenes. */}
         <swiper-container

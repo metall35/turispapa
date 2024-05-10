@@ -31,7 +31,7 @@ export default function CardShort({ data }) {
               {data.nombre}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-               {data.contacto || data.distancia}
+              {data.contacto == "0" ? "No hay contacto" : data.contacto || data.distancia}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {data.direccion || data.duracion}

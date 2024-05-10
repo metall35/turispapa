@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
 
-export const NavLinks = () => {
+export const NavLinks = ({setOpen}) => {
 /* El fragmento de código define variables de estado y una función en un componente funcional de React. */
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
@@ -120,7 +120,7 @@ interacciones del usuario. */
                     {slinks.Head}
                   </h1>
                   {slinks.sublink.map((slink) => (
-                    <li className="py-3 pl-14" key={slink.name}>
+                    <li className="py-3 pl-14" key={slink.name} onClick={() => setOpen(!open)}>
                       <Link to={slink.link}>{slink.name}</Link>
                     </li>
                   ))}

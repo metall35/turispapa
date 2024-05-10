@@ -14,7 +14,6 @@ import Rutas from "../Rutas";
 import Asistencias from "../Asistencias";
 import Admin from "../Administrador"
 //import Asistenciass from "../Asistenciass"
-import Entretenimiento from "../Entretenimiento"
 import NotFound from "../NotFound";
 import Layout from "../../Components/Layout";
 import Footer from "../../Components/Footer";
@@ -22,7 +21,7 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import Loader from '../../Components/Loader'
 import FormEventos from '../../Components/Forms/FormEventos'
 import FormAsistencias from '../../Components/Forms/FormAsistencias'
-import FormEstablecimieno from '../../Components/Forms/FormEstablecimiento'
+import FormEstablecimiento from '../../Components/Forms/FormEstablecimiento'
 import FormLugaresNaturales from '../../Components/Forms/FormLugaresNaturales'
 import Login from "../Login";
 import ComponentModal from "../../Components/Modal";
@@ -41,7 +40,6 @@ function AppRoutes() {
         { path: '/lugares-naturales', element: <Lugar_Natural /> },
         { path: '/eventos', element: <Eventos /> },
         { path: '/restaurantes', element: <Restaurantes /> },
-        { path: '/entretenimiento', element: <Entretenimiento /> },
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },
@@ -49,7 +47,7 @@ function AppRoutes() {
         { path: '/asistencias', element: <Asistencias /> },
         { path: '/FormEventos', element: <FormEventos /> },
         { path: '/FormAsistencias', element: <FormAsistencias /> },
-        { path: '/FormEstablecimieno', element: <FormEstablecimieno /> },
+        { path: '/FormEstablecimiento', element: <FormEstablecimiento /> },
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
         { path: '/administrador/editar/:id', element: <Edit /> },

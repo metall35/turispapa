@@ -10,10 +10,10 @@ export default function Edit() {
     const location = useLocation()
     const { setInputs, inputs } = useContext(TurisContext)
     const { producto } = location.state
-    console.log(producto);
+    // console.log(producto);
     useEffect(() => {
         setInputs(producto)
-        console.log(inputs);
+        // console.log(inputs);
     }, [])
 
     return (
@@ -24,7 +24,7 @@ export default function Edit() {
                     ? <FormEstablecimiento />
                     : producto.tipo_negocio === "asistencia"
                         ? <FormAsistencia />
-                        : producto.tipo_negocio === "natural"
+                        : producto.tipo_negocio === "index"
                             ? <FormLugaresNaturales />
                             : <FormEventos />
             }

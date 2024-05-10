@@ -13,7 +13,7 @@ export const indexForms = [
     {
         id: 4,
         nombre: "Formulario Establecimientos",
-        link: "/FormEstablecimieno"
+        link: "/FormEstablecimiento"
     },
     {
         id: 5,

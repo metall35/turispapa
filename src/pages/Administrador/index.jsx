@@ -13,7 +13,7 @@ function Admin() {
     const [data, setData] = useState({})
     const [dataFilter, setDataFilter] = useState({})
     const admin1 = useGetAdmin()
-    const { establecimiento, asistencia, eventos } = useGetData(["establecimiento", "asistencia", "eventos"]);
+    const { establecimiento, asistencia, eventos, index } = useGetData(["establecimiento", "asistencia", "eventos", "index"]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -32,7 +32,12 @@ function Admin() {
                 ...item,
             }));
 
-            const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos);
+            const newObjIndex = index.map((item, index) => ({
+                id: index, // Puedes agregar el id o cualquier otra propiedad que necesites
+                ...item,
+            }));
+
+            const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos, newObjIndex);
 
             console.log(newData);
             setData(newData);
@@ -44,13 +49,13 @@ function Admin() {
     const handleFilter = (link) => {
         setDataFilter([])
         setTimeout(() => {
-            setDataFilter(link === "" ? data : data.filter(data => data.tipo_negocio === link))
+            setDataFilter(link === "" ? data : data.filter(data => data.tipo_negocio === link ))
         }, 500);
     }
     return (
         <>
             {admin1 ?
-                <div className="flex bg-gray-100 w-full mb-10">
+                <div className="flex justify-center flex-col lg:flex-row bg-gray-100 w-full mb-10  mt-24">
                     <div className="w-64 bg-white p-4">
                         <h1 className="text-2xl font-bold mb-4">Panel de Administrador</h1>
                         <ul className="space-y-2">
@@ -70,7 +75,7 @@ function Admin() {
                     {/* Principal y Tarjetas */}
                     <div className="flex-1 px-10 py-2 mb-10 h-auto">
                         <h2 className="text-3xl font-semibold mb-4">Tablero</h2>
-                        <div className="grid grid-cols-2  gap-6 mb-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
                             {cardEstablecimientos?.map((data) => (
                                 <div className="flex items-center justify-center bg-white p-2 rounded shadow h-20 cursor-pointer" onClick={() => handleFilter(data.link)}>
                                     {<data.icono className={data.color + " text-5xl mr-2"} />}

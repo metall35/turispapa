@@ -5,7 +5,6 @@ import { CiBank } from "react-icons/ci";
 import { FaMasksTheater } from "react-icons/fa6";
 import { PiMountainsLight, PiForkKnifeLight, PiTentLight } from "react-icons/pi";
 import TablaContenido from "./TablaContenido";
-import { experiencia } from "./Myexperiencias"
 import useGetData from "../../../hooks/useGetData";
 import LoaderCard from "../../Loader/LoaderCard";
 

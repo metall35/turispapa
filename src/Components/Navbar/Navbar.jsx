@@ -26,13 +26,14 @@ export const Navbar = () => {
         }
       } else {
         if (scrollRef.current) {
-          setScroll('transition delay-300 duration-300 ease-in');
+          setScroll('transition delay-300 duration-300 ease-in ');
           setNav('h-[80px]');
           scrollRef.current = false;
         }
       }
     } else {
       setScroll("bg-[#ffff]")
+      scrollRef.current = false;
     }
   }
 
@@ -43,7 +44,7 @@ export const Navbar = () => {
     window.addEventListener("scroll", useScrolling);
 
     return () => {
-      window.removeEventListener("scroll", useScrolling);
+      window.removeEventListener("scroll", useScrolling); 
     }
   }, []);
 
@@ -52,7 +53,7 @@ export const Navbar = () => {
   return (
     <>
       <header
-        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"} `}
+        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "mt-[-40px]" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"} `}
         style={pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? {} : { backgroundImage: `url(${imageNav})` }}
       >
         <nav
@@ -107,29 +108,49 @@ export const Navbar = () => {
               </ul>
             }
             {/* Mobile nav */}
-            <ul
-              className={`
+            {pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ?
+              <ul className={`
+              md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
+              duration-500 ${open ? "left-0" : "left-[-100%]"}
+            `}>
+                <li onClick={() => setOpen(!open)}>
+                  <Link to="/administrador" className="py-7 px-3 inline-block" >
+                    Administrador
+                  </Link>
+                </li>
+
+                <li onClick={() => setOpen(!open)}>
+                  <Link to="/" reloadDocument className="py-7 px-3 inline-block " >
+                    {setAdmin(false)}
+                    Cerrar Sesión
+                  </Link>
+                </li>
+              </ul>
+              :
+              <ul
+                className={`
                 md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
                 duration-500 ${open ? "left-0" : "left-[-100%]"}
               `}
-            >
-              <li>
-                <Link to="/" className="py-7 px-3 inline-block">
-                  Home
-                </Link>
-              </li>
-              <NavLinks />
-              <li>
-                <Link to="/rutas" className="py-7 px-3 inline-block">
-                  Rutas
-                </Link>
-              </li>
-              <li>
-                <Link to="/asistencias" className="py-7 px-3 inline-block">
-                  Asistencias
-                </Link>
-              </li>
-            </ul>
+              >
+                <li onClick={() => setOpen(!open)}>
+                  <Link to="/" className="py-7 px-3 inline-block">
+                    Inicio
+                  </Link>
+                </li>
+                <NavLinks setOpen={setOpen}/>
+                <li onClick={() => setOpen(!open)}>
+                  <Link to="/rutas" className="py-7 px-3 inline-block">
+                    Rutas
+                  </Link>
+                </li>
+                <li onClick={() => setOpen(!open)}>
+                  <Link to="/asistencias" className="py-7 px-3 inline-block">
+                    Asistencias
+                  </Link>
+                </li>
+              </ul>
+            }
           </div>
         </nav>
         {/* <div className="bg-gradient-to-r from-black/80 to-white/10 w-screen h-full "></div> */}

@@ -34,8 +34,8 @@ export default function FormEstablecimiento() {
         {
             id: 3,
             type: 'text',
-            name: 'Localidad',
-            placeholder: 'Ingrese la localidad del establecimiento',
+            name: 'Instagram',
+            placeholder: 'Ingrese el instagram del establecimiento (sin el @)',
             required: true
         },
         {
@@ -68,15 +68,15 @@ export default function FormEstablecimiento() {
         });
     }
     if (pathname.includes("/administrador/editar")) {
-        handleSubmit = useEditData("establecimiento", onSubmit)
+        handleSubmit = useEditData("updatestablecimiento", onSubmit)
     } else {
-        handleSubmit = useSendData("establecimiento", onSubmit)
+        handleSubmit = useSendData("establecimientos", onSubmit)
     }
 
     return (
         <Forms>
             <h1 className="text-center my-2 mb-8 text-xl font-semibold">Formulario de ingreso de establecimientos</h1>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-3" onSubmit={handleSubmit}>
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-3 " onSubmit={handleSubmit}>
                 {Inputs.map(input => (
                     <Input
                         key={input.id}

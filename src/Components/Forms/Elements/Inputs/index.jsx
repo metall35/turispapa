@@ -18,8 +18,21 @@ const Input = ({ name, type, placeholder, required }) => {
         // if (e.target.value) {
         //     setTextoLimpio(e.target.value.replaceAll(/<[^>]*>/g, ""))
         // }
-        setValue(e.target.value)
-        setInputs({ ...inputs, [Name]: type === 'file' ? e.target.files[0] : e.target.value })
+        if (type === 'file') {
+            const file = e.target.files[0];
+            if (file) {
+                // Si se seleccionó un archivo, actualiza el estado con el objeto File
+                setInputs({ ...inputs, [Name]: file });
+            } else {
+                // Si no se seleccionó un archivo, mantiene el valor anterior (la URL)
+                setInputs({ ...inputs, [Name]: inputs[Name] });
+            }
+            // Resetea el valor del input de tipo 'file'
+            setValue(e.target.value)
+        } else {
+            setValue(e.target.value);
+            setInputs({ ...inputs, [Name]: e.target.value });
+        }
         // setInputs({ ...inputs, [Name]: e.target.value })
         console.log(inputs);
     }
