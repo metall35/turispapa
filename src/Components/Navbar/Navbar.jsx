@@ -61,7 +61,7 @@ export const Navbar = () => {
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
-              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[210px] ml-2" />
+              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[210px] ml-2 bg-white/80 rounded-xl" />
               <div className="flex items-center text-[36px] md:hidden" onClick={() => setOpen(!open)}
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
