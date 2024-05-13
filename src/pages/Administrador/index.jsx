@@ -11,7 +11,7 @@ import LoaderCard from "../../Components/Loader/LoaderCard";
 
 function Admin() {
     const [data, setData] = useState({})
-    const [dataFilter, setDataFilter] = useState({})
+    const [dataFilter, setDataFilter] = useState([])
     const admin1 = useGetAdmin()
     const { establecimiento, asistencia, eventos, index } = useGetData(["establecimiento", "asistencia", "eventos", "index"]);
 
@@ -39,10 +39,10 @@ function Admin() {
 
             const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos, newObjIndex);
 
-            console.log(newData);
+            // console.log(newData);
             setData(newData);
             setDataFilter(newData)
-            console.log(data);
+            // console.log(data);
         }, 200);
     }, [asistencia, establecimiento]);
 
