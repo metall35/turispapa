@@ -49,7 +49,7 @@ function Admin() {
     const handleFilter = (link) => {
         setDataFilter([])
         setTimeout(() => {
-            setDataFilter(link === "" ? data : data.filter(data => data.tipo_negocio === link ))
+            setDataFilter(link === "" ? data : data.filter(data => data.tipo_negocio === link))
         }, 500);
     }
     return (
@@ -99,9 +99,11 @@ function Admin() {
                                             <th className="py-3 px-6 text-center"></th>
                                         </tr>
                                     </thead>
-                                    {dataFilter?.map((data) => (
-                                        <TableAdmin key={data.contacto} data={data} />
-                                    ))}
+                                    <tbody className="text-gray-600 text-sm font-light">
+                                        {dataFilter?.map((data) => (
+                                            <TableAdmin key={data.contacto} data={data} />
+                                        ))}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

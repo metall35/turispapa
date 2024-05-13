@@ -35,7 +35,7 @@ function useGetData(urls) {
             if(data == {}){
                 setData(urls.map(url => { return { [url]: [] } }))
             }
-            console.log(data);
+            // console.log(data);
             return data
         }
     };

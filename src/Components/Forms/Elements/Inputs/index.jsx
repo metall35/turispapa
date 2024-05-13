@@ -34,7 +34,7 @@ const Input = ({ name, type, placeholder, required }) => {
             setInputs({ ...inputs, [Name]: e.target.value });
         }
         // setInputs({ ...inputs, [Name]: e.target.value })
-        console.log(inputs);
+        // console.log(inputs);
     }
     return (
         <label

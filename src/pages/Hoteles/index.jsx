@@ -14,7 +14,7 @@ function Hoteles() {
     const dataHotel = () => {
       setData(
         establecimiento.filter(establecimiento => {
-          return establecimiento.tipo_negocio === "Hotel"
+          return establecimiento.tipo_negocio === "Hotel" && establecimiento.estados === "activo"
         }))
     }
     setTimeout(() => {
@@ -30,7 +30,7 @@ function Hoteles() {
       <article className="w-full flex items-center justify-center flex-row gap-5 flex-wrap mb-8">
         {/* /* El código `evento?.map(data => (<Card key={data.id} data={data} />))` se asigna sobre
               la matriz `evento` y representa un componente `Card` para cada elemento en la matriz. */}
-        {establecimiento ? establecimiento.length > 0 ? data?.map((data) => (
+        {establecimiento ? data.length > 0 ? data?.map((data) => (
           <Card key={data.id_establecimiento} data={data} />
         )) :
           <p className="font-bold text-xl  text-center mt-6">

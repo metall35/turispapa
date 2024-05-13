@@ -15,9 +15,9 @@ export function TurisContextProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/imagen')
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_TURISPAPA}/index`)
                 const data = await response.data
-                console.log(data);
+                // console.log(data);
                 setLoader(false)
             } catch (error) {
                 console.log(`oh no hermano, algo salio mal: ${error}`);

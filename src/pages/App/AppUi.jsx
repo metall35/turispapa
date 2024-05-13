@@ -1,4 +1,4 @@
-import { useRoutes, BrowserRouter, useLocation } from "react-router-dom";
+import { useRoutes, BrowserRouter, useLocation, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { TurisContext } from "../../Context";
 import UseScrollToTop from "../../hooks/useScrollToTop";
@@ -43,7 +43,6 @@ function AppRoutes() {
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },
-        { path: '/iniciar-sesion', element: <Login /> },
         { path: '/asistencias', element: <Asistencias /> },
         { path: '/FormEventos', element: <FormEventos /> },
         { path: '/FormAsistencias', element: <FormAsistencias /> },
@@ -51,6 +50,7 @@ function AppRoutes() {
         { path: '/FormLugaresNaturales', element: <FormLugaresNaturales /> },
         { path: '/administrador', element: <Admin /> },
         { path: '/administrador/editar/:id', element: <Edit /> },
+        { path: '/iniciar-sesion', element: <Login /> },
         { path: '/*', element: <NotFound /> },
 
     ])

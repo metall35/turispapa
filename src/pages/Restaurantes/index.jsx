@@ -15,7 +15,7 @@ function Restaurantes() {
     const dataRestaurante = () => {
       setData(
         establecimiento.filter(establecimiento => {
-          return establecimiento.tipo_negocio === "Restaurante"
+          return establecimiento.tipo_negocio === "Restaurante" && establecimiento.estados === "activo"
         }))
     }
     setTimeout(() => {
@@ -32,7 +32,7 @@ function Restaurantes() {
 
         {/* /* El código `evento?.map(data => (<Card key={data.id} data={data} />))` se asigna sobre
               la matriz `evento` y representa un componente `Card` para cada elemento en la matriz. */}
-        {establecimiento ? establecimiento.length > 0 ? data?.map((data) => (
+        {establecimiento ? data.length > 0 ? data?.map((data) => (
           <Card key={data.id_establecimiento} data={data} />
         )) :
           <p className="font-bold text-xl  text-center mt-6">

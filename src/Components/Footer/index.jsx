@@ -25,7 +25,7 @@ function Footer({className}) {
             </section>
             <p className="flex items-center justify-center absolute bottom-0 w-full h-[22%] bg-black/80 border-t-2 border-white/60">
                 <span className="text-white/60 text-sm font-extralight">
-                    ©{date.getFullYear()} TURISPAPA DESARROLLADO POR
+                    ©{date.getFullYear()} LA UNIÓN ENAMORA DESARROLLADO POR
                 </span>
                 <img src={NOX} alt="" className="w-16"/>
             </p>
