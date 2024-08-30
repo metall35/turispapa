@@ -1,15 +1,12 @@
 import Card from "../../Components/CardShort"
-import imgHeader from "../../assets/img/cascada-parque.jpg"
 import useGetData from "../../hooks/useGetData"
 import { useContext, useState } from "react"
-import { TurisContext } from "../../Context"
 import { useEffect } from "react"
 import LoaderCard from "../../Components/Loader/LoaderCard"
 
 function Restaurantes() {
   const [data, setData] = useState([])
-  const { setImageNav } = useContext(TurisContext)
-  setImageNav(imgHeader)
+
   const { establecimiento } = useGetData(["establecimiento"])
   useEffect(() => {
     const dataRestaurante = () => {

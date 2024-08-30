@@ -1,14 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
-import { TurisContext } from "../../Context"
-import imgHeader from '../../assets/img/IglAtardecer1.jpg';
 import Card from "../../Components/CardLong"
 import useGetData from "../../hooks/useGetData"
 import LoaderCard from "../../Components/Loader/LoaderCard";
 
 function Eventos() {
-    const { setImageNav } = useContext(TurisContext)
     const [data, setData] = useState([])
-    setImageNav(imgHeader)
+
     const { eventos } = useGetData(["eventos"])
     useEffect(() => {
         const dataEventos = () => {

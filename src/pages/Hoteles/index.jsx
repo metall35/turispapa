@@ -7,8 +7,6 @@ import LoaderCard from "../../Components/Loader/LoaderCard"
 
 function Hoteles() {
   const [data, setData] = useState([])
-  const { setImageNav } = useContext(TurisContext)
-  setImageNav(imgHeader)
   const { establecimiento } = useGetData(["establecimiento"])
   useEffect(() => {
     const dataHotel = () => {

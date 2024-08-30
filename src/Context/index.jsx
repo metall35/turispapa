@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState} from 'react'
+import { createContext, useEffect, useState } from 'react'
 import axios from 'axios';
 export const TurisContext = createContext()
 // eslint-disable-next-line react/prop-types
@@ -12,6 +12,7 @@ export function TurisContextProvider({ children }) {
     const [openModal, setOpenModal] = useState(false)
     const [dataModal, setDataModal] = useState({})
     const [tokenSession, setTokenSession] = useState("")
+    const [dataHeader, setDataHeader] = useState([])
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,31 +25,48 @@ export function TurisContextProvider({ children }) {
                 setLoader(false)
             }
         }
+
+        const fetchDataHeader = async () => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_TURISPAPA}/inicio`)
+                const data = await response.data
+                setDataHeader(data)
+
+            } catch (error) {
+                console.log(`oh no hermano, algo salio mal: ${error}`);
+                setLoader(false)
+            }
+        }
+        
+        fetchDataHeader()
         fetchData()
-    }, []) 
+    }, [])
+
     // console.log(admin);
     return (
-/* El código está creando un componente proveedor de contexto llamado `TurisContextProvider` usando los
-ganchos `createContext` y `useState` de React. */
+        /* El código está creando un componente proveedor de contexto llamado `TurisContextProvider` usando los
+        ganchos `createContext` y `useState` de React. */
         <TurisContext.Provider
-        value={{
-            setJustifyActive,
-            justifyActive,
-            inputs,
-            setInputs,
-            loader,
-            setLoader,
-            imageNav,
-            setImageNav,
-            admin,
-            setAdmin,
-            openModal,
-            setOpenModal,
-            dataModal,
-            setDataModal,
-            tokenSession,
-            setTokenSession,
-        }
+            value={{
+                setJustifyActive,
+                justifyActive,
+                inputs,
+                setInputs,
+                loader,
+                setLoader,
+                imageNav,
+                setImageNav,
+                admin,
+                setAdmin,
+                openModal,
+                setOpenModal,
+                dataModal,
+                setDataModal,
+                tokenSession,
+                setTokenSession,
+                dataHeader,
+                setDataHeader
+            }
             }
         >
             {children}

@@ -5,6 +5,8 @@ import FormEventos from "../FormEventos";
 import FormLugaresNaturales from "../FormLugaresNaturales";
 import { useContext, useEffect } from "react";
 import { TurisContext } from "../../../Context";
+import FormHeaders from "../FormHeader";
+import FormSlider from "../FormSlider";
 
 export default function Edit() {
     const location = useLocation()
@@ -26,7 +28,11 @@ export default function Edit() {
                         ? <FormAsistencia />
                         : producto.tipo_negocio === "index"
                             ? <FormLugaresNaturales />
-                            : <FormEventos />
+                            : producto.tipo_negocio === "headers" 
+                            ? <FormHeaders />
+                            : producto.tipo_negocio === "slider" 
+                            ? <FormSlider  />
+                            :<FormEventos />
             }
         </>
     )

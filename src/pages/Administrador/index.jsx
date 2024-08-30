@@ -13,7 +13,7 @@ function Admin() {
     const [data, setData] = useState({})
     const [dataFilter, setDataFilter] = useState([])
     const admin1 = useGetAdmin()
-    const { establecimiento, asistencia, eventos, index } = useGetData(["establecimiento", "asistencia", "eventos", "index"]);
+    const { establecimiento, asistencia, eventos, index, inicio, slider } = useGetData(["establecimiento", "asistencia", "eventos", "index", "inicio", "slider"]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -37,7 +37,17 @@ function Admin() {
                 ...item,
             }));
 
-            const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos, newObjIndex);
+            const newObjInicio = inicio.map((item, index) => ({
+                id: index, 
+                ...item,
+            }));
+
+            const newObjSlider = slider.map((item, index) => ({
+                id: index, 
+                ...item,
+            }));
+
+            const newData = newObjEstablecimiento.concat(newObjAsistencia, newObjEventos, newObjIndex, newObjInicio, newObjSlider);
 
             // console.log(newData);
             setData(newData);
@@ -93,7 +103,7 @@ function Admin() {
                                 <table className="w-full table-auto">
                                     <thead>
                                         <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                            <th className="py-3 px-6 text-left">Nombre del Establecimiento</th>
+                                            <th className="py-3 px-6 text-left">Nombre</th>
                                             <th className="py-3 px-6 text-left">Contacto</th>
                                             <th className="py-3 px-6 text-center">Imagen</th>
                                             <th className="py-3 px-6 text-center"></th>

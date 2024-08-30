@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { TurisContext } from "../../Context";
 import Slider from "../../Components/Slider"
-import imgHeader from '../../assets/img/IglAtardecer1.jpg';
 import historia1 from '../../assets/img/historia1.jpg'
 import historia2 from '../../assets/img/historia2.jpg'
 import historia3 from '../../assets/img/historia3.jpg'
@@ -10,9 +7,8 @@ import historia5 from '../../assets/img/historia5.jpg'
 import historia6 from '../../assets/img/historia6.jpg'
 import historia7 from '../../assets/img/historia7.jpg'
 import historia8 from '../../assets/img/historia8.jpg'
+
 function Historia() {
-    const { setImageNav } = useContext(TurisContext)
-    setImageNav(imgHeader)
     return (
         <section className="w-[90%] flex flex-col items-center mb-4">
             <section className="grid md:grid-cols-4 grid-rows-1 gap-6 mb-4">

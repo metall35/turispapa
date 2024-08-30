@@ -26,7 +26,7 @@ export const Navbar = () => {
         }
       } else {
         if (scrollRef.current) {
-          setScroll('transition delay-300 duration-300 ease-in ');
+          setScroll('transition delay-300 duration-300 ease-in text-white ');
           setNav('h-[80px]');
           scrollRef.current = false;
         }
@@ -53,7 +53,7 @@ export const Navbar = () => {
   return (
     <>
       <header
-        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "mt-[-40px]" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center"} `}
+        className={`${pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? "mt-[-40px]" : "h-[740px] bg-cover bg-no-repeat bg-fixed bg-center" } `}
         style={pathname === "/administrador" || pathname.includes("/Form") || pathname.includes("/editar") ? {} : { backgroundImage: `url(${imageNav})` }}
       >
         <nav
@@ -61,7 +61,7 @@ export const Navbar = () => {
         >
           <div className={"flex items-center font-medium justify-between" + " " + nav}>
             <div className="z-50 p-1 md:w-auto w-full flex justify-between">
-              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[210px] ml-2 bg-white/80 rounded-xl" />
+              <img src={Logo} alt="logo" className="md:cursor-pointer h-[60px] w-[220px] ml-2 bg-white/80 rounded-xl" />
               <div className="flex items-center text-[36px] md:hidden" onClick={() => setOpen(!open)}
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
@@ -101,8 +101,8 @@ export const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/asistencias" className="py-7 px-3 inline-block ">
-                    Asistencia
+                  <Link to="/prestadores" className="py-7 px-3 inline-block ">
+                    Prestadores
                   </Link>
                 </li>
               </ul>
@@ -145,8 +145,8 @@ export const Navbar = () => {
                   </Link>
                 </li>
                 <li onClick={() => setOpen(!open)}>
-                  <Link to="/asistencias" className="py-7 px-3 inline-block">
-                    Asistencias
+                  <Link to="/prestadores" className="py-7 px-3 inline-block">
+                    Prestadores
                   </Link>
                 </li>
               </ul>

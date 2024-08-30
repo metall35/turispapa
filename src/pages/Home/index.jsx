@@ -1,36 +1,45 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TurisContext } from "../../Context";
-import Experiencias from "../../Components/home/Experiencias"
-import MapaIndex from "../../Components/home/MapaIndex"
-import Slider from "../../Components/Slider"
-import imgHeader from '../../assets/imgHeader.svg';
-import p2 from '../../assets/img/buggy.jpg';
-import p3 from '../../assets/img/lactesano.jpg';
-import p4 from '../../assets/img/pajariando.jpeg'
-import p7 from '../../assets/img/vallestradas.jpg'
-import p8 from '../../assets/img/cuatriturs.jpg'
-/**
- * La función Inicio devuelve un elemento JSX que incluye un encabezado, un componente llamado
- * Experiencias, un componente llamado Slider y un componente llamado MapaIndex.
- */
+import Experiencias from "../../Components/home/Experiencias";
+import MapaIndex from "../../Components/home/MapaIndex";
+import Slider from "../../Components/Slider";
+import imgHeader from '../../assets/imgHeader.svg'; 
+import useGetData from "../../hooks/useGetData";
+
 function Home() {
-    const { setImageNav } = useContext(TurisContext)
-    setImageNav(imgHeader)
+    const { setImageNav } = useContext(TurisContext);
+    const { slider } = useGetData(["slider"]);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const dataEventos = () => {
+            const imagenes = slider.map(item => item.imagen);
+            setData(imagenes);
+        }
+        setTimeout(() => {
+            dataEventos()
+        }, 50);
+        console.log(data);
+        
+    }, [slider])
+
     return (
         <>
             <h1 className="mb-6 text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-green-550 to-yellow-500 text-center">
-            Vive La Unión: Más que un destino, una experiencia
+                Vive La Unión: Más que un destino, una experiencia
             </h1>
 
             <Experiencias />
-            <h2 className='m-4 text-center font-bold text-2xl text-green-500'>La Unión: Un Mundo de Experiencias</h2>
+            <h2 className='m-4 text-center font-bold text-2xl text-green-500'>
+                La Unión: Un Mundo de Experiencias
+            </h2>
             <Slider
                 width={'w-[80%]'}
-                data={[p2, p3, p4, p7, p8]}
+                data={data}
             />
             <MapaIndex />
         </>
-    )
+    );
 }
 
-export default Home
+export default Home;

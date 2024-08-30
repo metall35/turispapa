@@ -35,7 +35,7 @@ const useSendData = (url, onSubmit) => {
         try {
             console.log(formData);
 
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}/${inputs.id_establecimiento || inputs.id_asistencias || inputs.id_eventos || inputs.id_lugar || inputs.id_index}`, formData);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_TURISPAPA}/${url}/${inputs.id_establecimiento || inputs.id_asistencias || inputs.id_eventos || inputs.id_lugar || inputs.id_index || inputs.id_headers || inputs.id_imagen}`, formData);
             Swal.fire({
                 title: "¡Bien!",
                 text: "La información a sido guardada correctamente.",
@@ -50,6 +50,7 @@ const useSendData = (url, onSubmit) => {
                 onSubmit();
             });
         } catch (error) {
+            console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

@@ -43,7 +43,7 @@ function AppRoutes() {
         { path: '/hoteles', element: <Hoteles /> },
         { path: '/agencias', element: <Agencias /> },
         { path: '/rutas', element: <Rutas /> },
-        { path: '/asistencias', element: <Asistencias /> },
+        { path: '/prestadores', element: <Asistencias /> },
         { path: '/FormEventos', element: <FormEventos /> },
         { path: '/FormAsistencias', element: <FormAsistencias /> },
         { path: '/FormEstablecimiento', element: <FormEstablecimiento /> },
