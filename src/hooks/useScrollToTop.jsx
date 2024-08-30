@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { TurisContext } from '../Context';
 
 const UseScrollToTop = () => {
-    const { setImageNav, dataHeader, setDataHeader } = useContext(TurisContext)
+    const { setImageNav, dataHeader, imageNav } = useContext(TurisContext)
     // Extracts pathname property(key) from an object
     const { pathname } = useLocation();    // Automatically scrolls to top whenever pathname changes
     if (pathname !== "/administrador") {
@@ -19,36 +19,28 @@ const UseScrollToTop = () => {
     }
 
 
-    if (pathname !== "/administrador") {
+    useEffect(() => {
+        if (pathname !== "/administrador") {
+            let img;
+            if (pathname === "/") {
+                img = dataHeader[0]?.imagen;
+            } else if (["/historia", "/lugares-naturales", "/eventos"].includes(pathname)) {
+                img = dataHeader[1]?.imagen;
+            } else if (["/restaurantes", "/hoteles"].includes(pathname)) {
+                img = dataHeader[2]?.imagen;
+            } else if (pathname === "/rutas") {
+                img = dataHeader[3]?.imagen;
+            } else if (pathname === "/prestadores") {
+                img = dataHeader[4]?.imagen;
+            }
 
-        useEffect(() => {
-            setTimeout(() => {
-
-                if (pathname === "/") {
-                    const img = dataHeader[0]
-                    setImageNav(img.imagen)
-                }
-                if (pathname === "/historia" || pathname === "/lugares-naturales" || pathname === "/eventos") {
-                    const img = dataHeader[1]
-                    setImageNav(img.imagen)
-                }
-                if (pathname === "/restaurantes" || pathname === "/hoteles") {
-                    const img1 = dataHeader[2]
-                    console.log(img1);
-                    setImageNav(img1.imagen)
-                }
-                if (pathname === "/rutas") {
-                    const img = dataHeader[3]
-                    setImageNav(img.imagen)
-                }
-                if (pathname === "/prestadores") {
-                    const img = dataHeader[4]
-                    setImageNav(img.imagen)
-                }
-            }, 10);
-        }, [pathname, dataHeader, setDataHeader])
-
-    }
+            // Reemplazar los espacios por %20
+            if (img) {
+                img = img.replace(/ /g, "%20");
+                setImageNav(img);
+            }
+        }
+    }, [pathname, dataHeader, setImageNav, imageNav]);
 
 }
 

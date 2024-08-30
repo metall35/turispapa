@@ -19,7 +19,6 @@ function Home() {
         setTimeout(() => {
             dataEventos()
         }, 50);
-        console.log(data);
         
     }, [slider])
 

@@ -13,6 +13,9 @@ export function TurisContextProvider({ children }) {
     const [dataModal, setDataModal] = useState({})
     const [tokenSession, setTokenSession] = useState("")
     const [dataHeader, setDataHeader] = useState([])
+
+    console.log(imageNav);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
