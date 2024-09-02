@@ -3,22 +3,23 @@ import { useLocation } from 'react-router-dom';
 import { TurisContext } from '../Context';
 
 const UseScrollToTop = () => {
-    const { setImageNav, dataHeader, imageNav } = useContext(TurisContext)
-    // Extracts pathname property(key) from an object
-    const { pathname } = useLocation();    // Automatically scrolls to top whenever pathname changes
-    if (pathname !== "/administrador") {
-        useEffect(() => {
+    const { setImageNav, dataHeader } = useContext(TurisContext);
+    const { pathname } = useLocation();
+
+    // Hook para controlar el scroll al cambiar de ruta
+    useEffect(() => {
+        if (pathname !== "/administrador") {
             setTimeout(() => {
                 window.scrollTo(0, 0);
-            }, 800)
+            }, 800);
+
             setTimeout(() => {
                 window.scrollTo(0, 100);
+            }, 1500);
+        }
+    }, [pathname]);
 
-            }, 1500)
-        }, [pathname]);
-    }
-
-
+    // Hook para actualizar la imagen de navegación
     useEffect(() => {
         if (pathname !== "/administrador") {
             let img;
@@ -40,8 +41,7 @@ const UseScrollToTop = () => {
                 setImageNav(img);
             }
         }
-    }, [pathname, dataHeader, setImageNav, imageNav]);
-
-}
+    }, [pathname, dataHeader, setImageNav]);
+};
 
 export default UseScrollToTop;
