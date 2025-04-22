@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NOX from "../../assets/NOX.svg";
-import launion from "../../assets/launion.svg";
+import launion from "../../assets/perfil.png";
 import sena from "../../assets/sena.svg";
 import fondo from "../../assets/img/fondo-footer.png";
 import turismo from "../../assets/img/logo (2).png";
@@ -11,14 +11,14 @@ function Footer({className}) {
         <footer className={`relative max-h-32  w-full overflow-hidden ${className} `} >
             <img src={fondo} alt="" className=" max-h-36 w-full overflow-hidden"/>
             <section className="absolute top-0 bg-black/60 w-full h-[80%] flex items-center justify-center gap-10 ">
-                <figure  className="bg-white/60 h-16 w-16 rounded-md overflow-hidden" >
+                <figure  className="bg-white h-16 w-16 rounded-md overflow-hidden" >
                     <img src={launion} alt="la unión" className="h-16" />
                 </figure>
-                <figure  className="bg-white/60 h-16 w-[40%] md:w-auto  rounded-md overflow-hidden" >
+                <figure  className="bg-white h-16 w-[40%] md:w-auto  rounded-md overflow-hidden" >
                     <img src={turismo} alt="turimo" className="h-16" />
                 </figure>
                 <div className="flex justify-center items-center">
-                <figure  className="bg-white/60 h-16 w-16 rounded-md overflow-hidden pt-2 pl-1" >
+                <figure  className="bg-white h-16 w-16 rounded-md overflow-hidden pt-2 pl-1" >
                     <img src={sena} alt="sena" className="h-12" />
                 </figure>
                 </div>

@@ -8,19 +8,17 @@ import useGetData from "../../hooks/useGetData";
 
 function Home() {
     const { setImageNav } = useContext(TurisContext);
-    const { slider } = useGetData(["slider"]);
+    const { slider = [] } = useGetData(["slider"]); // Asegura un valor por defecto vacío
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true); // Estado de carga
 
     useEffect(() => {
-        const dataEventos = () => {
+        if (slider && slider.length > 0) { // Verifica si slider no es undefined
             const imagenes = slider.map(item => item.imagen);
             setData(imagenes);
+            setLoading(false); // Datos cargados
         }
-        setTimeout(() => {
-            dataEventos()
-        }, 50);
-        
-    }, [slider])
+    }, [slider]);
 
     return (
         <>
@@ -32,10 +30,17 @@ function Home() {
             <h2 className='m-4 text-center font-bold text-2xl text-green-500'>
                 La Unión: Un Mundo de Experiencias
             </h2>
-            <Slider
-                width={'w-[80%]'}
-                data={data}
-            />
+
+            {/* Muestra el slider solo si los datos están cargados */}
+            {loading ? (
+                <p>Cargando...</p>
+            ) : (
+                <Slider
+                    width={'w-[80%]'}
+                    data={data}
+                />
+            )}
+
             <MapaIndex />
         </>
     );

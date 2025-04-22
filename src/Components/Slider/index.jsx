@@ -2,21 +2,22 @@ import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
 import "./style.css"
 
-/* Se llama a la función `register()` para registrar el paquete de elementos Swiper. Esto es necesario
-para utilizar el componente Swiper en el código. */
+// Registrar Swiper al cargar el componente
 register();
 
 export default function Slider({ width, data }) {
-  /* El código está creando una referencia (`swiperElRef`) usando el gancho `useRef`. Esta referencia se
-  utiliza para acceder al elemento DOM del contenedor swiper. */
   const swiperElRef = useRef(null);
 
+  useEffect(() => {
+    if (swiperElRef.current) {
+      swiperElRef.current.initialize(); // Asegurar inicialización
+    }
+  }, [data]); // Se ejecuta cada vez que cambia "data"
 
   return (
     <>
       <section className={`${width} h-[520px]`}>
-        {/* /* El código está creando un componente contenedor Swiper utilizando el elemento `swiper-container`.
-Este contenedor se encarga de mostrar una presentación de diapositivas de imágenes. */}
+        {/* Contenedor principal del slider */}
         <swiper-container
           class="mySwiper rounded-lg overflow-hidden"
           ref={swiperElRef}
@@ -33,6 +34,7 @@ Este contenedor se encarga de mostrar una presentación de diapositivas de imág
           ))}
         </swiper-container>
 
+        {/* Contenedor del slider secundario */}
         <swiper-container
           class="mySwiper2"
           space-between="10"
@@ -40,12 +42,12 @@ Este contenedor se encarga de mostrar una presentación de diapositivas de imág
           free-mode="true"
           watch-slides-progress="true">
           {data?.map(img => (
-            <swiper-slide lazy="true"  key={img}>
+            <swiper-slide lazy="true" key={img}>
               <img src={img} loading='lazy' />
             </swiper-slide>
           ))}
         </swiper-container>
-      </section >
+      </section>
     </>
   );
 };
